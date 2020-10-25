@@ -7,6 +7,23 @@ def setup():
     check = os.path.isdir('config')
     if (check == False):
         os.mkdir('config')
+        
+
+def crearCuenta():
+    cuenta = input("Digite el nombre de la cuenta a crear (recuerde que este debe ser ilustrativo para saber a qué hace alusión: \n")
+    path = './config/'+ cuenta
+    os.mkdir(path)
+
+    csvPath = path + '/'
+    with open(os.path.join(csvPath, 'registro.csv'), "w") as f:
+        writer = csv.writer(f)
+        writer.writerow(['Monto','Fecha','Concepto'])
+
+    with open(os.path.join(csvPath, 'balance.csv'), "w") as f:
+        writer = csv.writer(f)
+        writer.writerow(['Monto','Fecha',])
+
+
 
 def ingresos (path):
     ingreso = float(input("Digite el monto de su ingresos en colones: "))
@@ -17,6 +34,7 @@ def ingresos (path):
             writer = csv.writer(f)
             writer.writerow([ingreso,fecha,nota])
 
+
 def gastos(path):
     gasto = float(input("Digite el monto de su gasto en colones: "))*(-1)
     fecha = date.today().strftime("%d/%m/%Y")
@@ -26,49 +44,50 @@ def gastos(path):
         writer = csv.writer(f)
         writer.writerow([gasto,fecha,nota])
 
+
 def balance(path):
-    read = 5
-
-
-
-
-class Person:
-    def __init__ (self,name):
-        self.n=name
-
-    def crearCuenta(self):
-        cuenta = input("Digite el nombre de la cuenta a crear (recuerde que este debe ser ilustrativo para saber a qué hace alusión: \n")
-        path = './config/'+ cuenta
-        os.mkdir(path)
-
-        csvPath = path + '/'
-        with open(os.path.join(csvPath, 'registro.csv'), "w") as f:
-            writer = csv.writer(f)
-            writer.writerow(['Monto','Fecha','Concepto'])
-
-        with open(os.path.join(csvPath, 'balance.csv'), "w") as f:
-            writer = csv.writer(f)
-            writer.writerow(['Monto','Fecha',])
+    registro = path + 'registro.csv'
+    data = pd.read_csv(registro)
     
+    total = data['Monto'].sum()
+    print(total)
+    fecha = date.today().strftime("%d/%m/%Y")
+    print (fecha)
+    print("\n")
+    with open(os.path.join(path, 'balance.csv'), "a") as f:
+        writer = csv.writer(f)
+        writer.writerow([total,fecha])
+
+    prueabPath = path + 'balance.csv'
+    prueba = pd.read_csv(prueabPath)
+    print (prueba)
+
+
+def menu():
     
-    def definirAction(self):
-        define = input("Indique la cuenta a la que se realizan los cambios: \n")
-        path = './config/'+ define
-        check = os.path.isdir(path)
-        
-        if(check == True):
-            action = input("Indique si va a realizar un ingreso un gasto: \n")
-            if (action=="ingreso"):
-                ingresos(path)
-            elif (action=="gasto"):
-                gastos(path)
+    run = 1
+    check = os.path.isdir('./config/')
+    if(check == False):
+        print("Se ha creado el directorio config, el cual tiene los datos de las cuentas.")
+        setup()
+
+    
+    while(run == 1):
+        define = input("Indique lo que se desea hacer (crear, ingresos, gastos, balance o salir): \n")
+
+        if (define=="ingresos"):
+            path = './config/' + input("Indique el nombre de la cuenta a la que desea realizar el cambio: \n")    
+            ingresos(path)
+        elif (define=="gastos"):
+            path = './config/' + input("Indique el nombre de la cuenta a la que desea realizar el cambio: \n") 
+            gastos(path)
+        elif (define == "balance"):
+            path = './config/' + input("Indique el nombre de la cuenta de la cual desea conocer el balance: \n") +'/'
+            balance(path)
+        elif (define == "crear"):
+            crearCuenta()
+        elif (define ==  "salir"):
+            run = 0
         else:
-            print("No ingresó un nombre válido.")
-
-            
-
+            print("No indicó una accion válida. Por favor verifique e intente de nuevo.")
  
-        
-   
-
-    
