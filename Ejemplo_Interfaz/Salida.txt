@@ -1,0 +1,990 @@
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_8.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_9.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+ Exception ignored in: 'kivy.graphics.instructions.RenderContext.set_texture'
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+ Exception ignored in: 'kivy.graphics.instructions.RenderContext.set_texture'
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_10.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+ Exception ignored in: 'kivy.graphics.instructions.RenderContext.set_texture'
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;31mCRITICAL[0m] [Clock       ] Warning, too much iteration done before the next frame. Check your code, or increase the Clock.max_iteration attribute
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_11.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+ Exception ignored in: 'kivy.graphics.instructions.RenderContext.set_texture'
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_12.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+ Exception ignored in: 'kivy.graphics.instructions.RenderContext.set_texture'
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_13.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+ Exception ignored in: 'kivy.graphics.instructions.RenderContext.set_texture'
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_14.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+ Exception ignored in: 'kivy.graphics.instructions.RenderContext.set_texture'
+ Traceback (most recent call last):
+   File "kivy/graphics/texture.pyx", line 789, in kivy.graphics.texture.Texture.bind
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 662, in _texture_fill
+     self.render(real=True)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 603, in render
+     return self._render_real()
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 586, in _render_real
+     self.render_lines(lines, options, self._render_text, y, size)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/__init__.py", line 564, in render_lines
+     render_text(line, x, y)
+   File "/usr/lib/python3/dist-packages/kivy/core/text/text_sdl2.py", line 48, in _render_text
+     self._surface.render(self, text, x, y)
+   File "kivy/core/text/_text_sdl2.pyx", line 127, in kivy.core.text._text_sdl2._SurfaceContainer.render
+ IndexError: list index out of range
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+Purge log fired. Analysing...
+Purge 56 log files
+Purge finished!
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_15.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_16.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_17.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_18.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_19.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_20.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_21.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position X is 0 - 3234
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range position Y is 0 - 2342
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch major is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range touch minor is 0 - 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> range pressure is 0 - 255
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> axes invertion: X is 0, Y is 0
+[[1;32mINFO[0m   ] [MTD         ] </dev/input/event6> rotation set to 0
+[[1;32mINFO[0m   ] [Base        ] Leaving application in progress...
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_25.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+ Traceback (most recent call last):
+   File "main.py", line 23, in <module>
+     AplicacionApp().run()
+   File "/usr/lib/python3/dist-packages/kivy/app.py", line 799, in run
+     self.load_kv(filename=self.kv_file)
+   File "/usr/lib/python3/dist-packages/kivy/app.py", line 596, in load_kv
+     root = Builder.load_file(rfilename)
+   File "/usr/lib/python3/dist-packages/kivy/lang/builder.py", line 301, in load_file
+     return self.load_string(data, **kwargs)
+   File "/usr/lib/python3/dist-packages/kivy/lang/builder.py", line 368, in load_string
+     parser = Parser(content=string, filename=fn)
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 392, in __init__
+     self.parse(content)
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 501, in parse
+     objects, remaining_lines = self.parse_level(0, lines)
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 604, in parse_level
+     _objects, _lines = self.parse_level(
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 574, in parse_level
+     raise ParserException(self, ln,
+ kivy.lang.parser.ParserException: Parser: File "/home/erick/Documentos/Pruebas_Python/Prueba_4/aplicacion.kv", line 2:
+ ...
+       1:#<pagina>
+ >>    2:    Nombre:name
+       3:
+       4:    GridLayout:
+ ...
+ Invalid data after declaration
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-24_26.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+ Traceback (most recent call last):
+   File "main.py", line 23, in <module>
+     AplicacionApp().run()
+   File "/usr/lib/python3/dist-packages/kivy/app.py", line 799, in run
+     self.load_kv(filename=self.kv_file)
+   File "/usr/lib/python3/dist-packages/kivy/app.py", line 596, in load_kv
+     root = Builder.load_file(rfilename)
+   File "/usr/lib/python3/dist-packages/kivy/lang/builder.py", line 301, in load_file
+     return self.load_string(data, **kwargs)
+   File "/usr/lib/python3/dist-packages/kivy/lang/builder.py", line 368, in load_string
+     parser = Parser(content=string, filename=fn)
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 392, in __init__
+     self.parse(content)
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 501, in parse
+     objects, remaining_lines = self.parse_level(0, lines)
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 604, in parse_level
+     _objects, _lines = self.parse_level(
+   File "/usr/lib/python3/dist-packages/kivy/lang/parser.py", line 574, in parse_level
+     raise ParserException(self, ln,
+ kivy.lang.parser.ParserException: Parser: File "/home/erick/Documentos/Pruebas_Python/Prueba_4/aplicacion.kv", line 2:
+ ...
+       1:<pagina>
+ >>    2:    Nombre:name
+       3:
+       4:    GridLayout:
+ ...
+ Invalid data after declaration
+  File "main.py", line 12
+    class Contenedor(Widget)
+                           ^
+SyntaxError: invalid syntax
+[[1;32mINFO[0m   ] [Logger      ] Record log in /home/erick/.kivy/logs/kivy_20-10-29_1.txt
+[[1;32mINFO[0m   ] [Kivy        ] v1.10.1
+[[1;32mINFO[0m   ] [Python      ] v3.8.5 (default, Jul 28 2020, 12:59:40) 
+[GCC 9.3.0]
+[[1;32mINFO[0m   ] [Factory     ] 194 symbols loaded
+[[1;32mINFO[0m   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[[1;32mINFO[0m   ] [Text        ] Provider: sdl2
+[[1;33mWARNING[0m] [Lang        ] The file /home/erick/Documentos/Pruebas_Python/Prueba_4/aplicacion.kv is loaded multiples times, you might have unwanted behaviors.
+[[1;32mINFO[0m   ] [Window      ] Provider: sdl2(['window_egl_rpi'] ignored)
+[[1;32mINFO[0m   ] [GL          ] Using the "OpenGL" graphics system
+[[1;32mINFO[0m   ] [GL          ] Backend used <gl>
+[[1;32mINFO[0m   ] [GL          ] OpenGL version <b'4.6 (Compatibility Profile) Mesa 20.0.8'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL vendor <b'Intel'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL renderer <b'Mesa Intel(R) HD Graphics 630 (KBL GT2)'>
+[[1;32mINFO[0m   ] [GL          ] OpenGL parsed version: 4, 6
+[[1;32mINFO[0m   ] [GL          ] Shading version <b'4.60'>
+[[1;32mINFO[0m   ] [GL          ] Texture max size <16384>
+[[1;32mINFO[0m   ] [GL          ] Texture max units <32>
+[[1;32mINFO[0m   ] [Window      ] auto add sdl2 input provider
+[[1;32mINFO[0m   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+xclip version 0.13
+Copyright (C) 2001-2008 Kim Saunders et al.
+Distributed under the terms of the GNU GPL
+[[1;32mINFO[0m   ] [Clipboard   ] Provider: xclip
+[[1;32mINFO[0m   ] [CutBuffer   ] cut buffer support enabled
+[[1;32mINFO[0m   ] [ProbeSysfs  ] device match: /dev/input/event6
+[[1;32mINFO[0m   ] [MTD         ] Read event from </dev/input/event6>
+[[1;32mINFO[0m   ] [Base        ] Start application main loop
+[[1;33mWARNING[0m] [MTD         ] Unable to open device "/dev/input/event6". Please ensure you have the appropriate permissions.
+[[1;32mINFO[0m   ] [GL          ] NPOT texture support is available

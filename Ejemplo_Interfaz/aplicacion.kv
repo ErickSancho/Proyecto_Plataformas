@@ -1,0 +1,37 @@
+<Contenedor>
+    name: Nombre
+    lastName: Apellido
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+
+            Label:
+                size:100,500
+                text:"Nombre: "
+                font_size:20
+            
+            TextInput:
+                id:Nombre
+                multiline:False    
+                size:100,500
+            
+            Label:
+                text:"Apellido: "
+                size:100,500
+                font_size:20
+            
+            TextInput:
+                id:Apellido
+                multiline:False
+                size:100,500
+
+        Button:    
+            text:"Entrada!"
+            on_press: root.Guardar()
+            size_hint:0.25,0.5
+            font_size: 20
+
