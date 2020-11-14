@@ -18,8 +18,10 @@ class Personal:
             writer.writerow([usr,pswrd])
     
     def loginUser(self, textUser, textPassword):
+      usr = str(textUser)
+      pswrd = str(textPassword)
       user = pd.read_csv('./config/userData.csv')
-      if user[0][0] == textUser and user[0][1] == textPassword:
+      if user[0][0] == usr and user[0][1] == pswrd:
         return True
       else:
         return False
