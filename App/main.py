@@ -30,11 +30,21 @@ class Menu(Screen):
                 auto_dismiss=False,
                 size_hint=(None, None), size=(350, 200))
 
-        content.bind(on_press=self.ir_login())
+        content.bind(on_press=pop.dismiss)
+        pop.open()
+
+    def EntraEmpresa(self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='Ingresar a Empresa?',
+                content=content,
+                auto_dismiss=False,
+                size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_press=pop.dismiss)
         pop.open()
         
-    def ir_login(self):
-        sm.current = "loginpersona"
+    # def ir_login(self):
+    #     sm.current = "loginpersona"
 
 # content=Label(text='Invalid username or password.'),
 ###  Defino las clases para la parte personal  ####
