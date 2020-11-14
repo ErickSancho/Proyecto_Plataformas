@@ -56,6 +56,12 @@
             size_hint:0.25, 0.2
             on_release: root.check_userpassword()
 
+        Button:
+            text: "Crear Usuario"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+            on_release: app.root.current = "crearpersona"
+
 
 <CreateUserPersona>:
     nameAccount:nameAccount

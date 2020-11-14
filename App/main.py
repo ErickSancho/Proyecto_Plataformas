@@ -88,13 +88,13 @@ class LoginPersona(Screen):
 class CreateUserPersona(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
-    persona.createUser(self.nameAccount.text,self.namePassword.text)
+    # persona.createUser(self.nameAccount.text,self.namePassword.text)
 
 
 #Pagina para crear cuentas:
 class CreateAccountPersona (Screen):
     account = ObjectProperty(None)
-    persona.crearCuenta(self.account.text)
+    # persona.crearCuenta(self.account.text)
 
 # Pagina para registro de Ingresos
 
@@ -105,18 +105,18 @@ class IngresosPersona(Screen):
     nameIngresos = ObjectProperty(None)
     montoIngresos = ObjectProperty(None)
     conceptoIngresos = ObjectProperty(None)
-    persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
+    # persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
   
 # Pagina para Ingreso de Gastos
 class GastosPersona(Screen):
     nameGastos = ObjectProperty(None)
     montoGastos = ObjectProperty(None)
     conceptoGastos = ObjectProperty (None)
-    persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
+    # persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
 # Pagina para muestra de Balance
 class BalancePersona(Screen):
     nameBalance = ObjectProperty(None)
-    persona.balance(self.nameBalance.text)
+    # persona.balance(self.nameBalance.text)
 
 ######################### Defino las clases de pantallas para empresas #########################
 
@@ -129,7 +129,7 @@ class LoginEmpresa(Screen):
     login = False
     i = 0
     def check_userpassword(self):        
-        self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
+        # self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
         print(self.nameUser.text, self.namePassword.text)
         if self.login == False:
             self.i = self.i+1
@@ -158,34 +158,34 @@ class LoginEmpresa(Screen):
 class CreateUserEmpresa(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
-    empresa.createUser(self.nameAccount.text,self.namePassword.text)
+    # empresa.createUser(self.nameAccount.text,self.namePassword.text)
 
 #Pagina para crear cuentas bancarias
 class CreateAccountEmpresa(Screen):
     account = ObjectProperty(None)
-    empresa.crearCuentaEmpresa(self.account.text)
+    # empresa.crearCuentaEmpresa(self.account.text)
 
 # Pagina para registra de Ingresos
 class IngresosEmpresa(Screen):
     nameCuenta = ObjectProperty(None)
     nameMonto = ObjectProperty(None)
     nameConcepto = ObjectProperty(None)
-    empresa.ingresosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
+    # empresa.ingresosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
   
 # Pagina para Ingreso de Gastos
 class GastosEmpresa(Screen):
     nameCuenta = ObjectProperty(None)
     nameMonto = ObjectProperty(None)
     nameConcepto = ObjectProperty(None)
-    empresa.gastosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
+    # empresa.gastosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
 # Pagina para muestra de Balance
 class BalanceEmpresa(Screen):
     nameBalance = ObjectProperty(None)
-    empresa.balanceEmpresa(self.nameBalance.text)
+    # empresa.balanceEmpresa(self.nameBalance.text)
 
 class ImpuestoEmpresa(Screen):
     nameEstado = ObjectProperty(None)
-    empresa.impuestosEmpresa(self.nameEstado.text)
+    # empresa.impuestosEmpresa(self.nameEstado.text)
 
 
 ############## Declaro manejador de ventanas ##############
@@ -196,6 +196,7 @@ class WindowManager(ScreenManager):
 ###################### Defino funciones necesarias ######################
 def ir_login_persona(*args):
     sm.current = "loginpersona"
+
 
 def ir_login_empresa(*args):
     sm.current = "loginempresa"
