@@ -31,6 +31,7 @@ class Menu(Screen):
                 size_hint=(None, None), size=(350, 200))
 
         content.bind(on_press=pop.dismiss)
+        content.bind(on_press=ir_login_persona)
         pop.open()
 
     def EntraEmpresa(self):
@@ -41,23 +42,29 @@ class Menu(Screen):
                 size_hint=(None, None), size=(350, 200))
 
         content.bind(on_press=pop.dismiss)
+        content.bind(on_press=ir_login_empresa)
+        
         pop.open()
         
-    # def ir_login(self):
-    #     sm.current = "loginpersona"
+
 
 # content=Label(text='Invalid username or password.'),
-###  Defino las clases para la parte personal  ####
+#########################  Defino las clases para la parte personal  ########################
 
 # Clase para la pantalla de ingreso a sistema personal.
 class LoginPersona(Screen):
+  sm.current = ""
     pass
 # Pagina para crear usuario
 class CreateUserPersona(Screen):
-    pass
+  
+  name = ObjectProperty(None)
+  persona.crearCuenta(str(name))
 # Pagina para registra de Ingresos
 class IngresosPersona(Screen):
-    pass
+  nameIngresos = ObjectProperty(None)
+  persona.ingresos(nameIngresos)
+  
 # Pagina para Ingreso de Gastos
 class GastosPersona(Screen):
     pass
@@ -65,19 +72,43 @@ class GastosPersona(Screen):
 class BalancePersona(Screen):
     pass
 
-### Defino las clases de pantallas para empresas ###
+######################### Defino las clases de pantallas para empresas #########################
 
-# Pagina de Ingreso de Usuario  No se si se podra emplear la misma que para Persona
-# class LoginEmpresa(Screen):
-#     pass
+# Clase para la pantalla de ingreso a sistema personal.
+class LoginEmpresa(Screen):
+  sm.current = ""
+    pass
+# Pagina para crear usuario
+class CreateUserEmpresa(Screen):
+  
+  name = ObjectProperty(None)
+  persona.crearCuenta(str(name))
+# Pagina para registra de Ingresos
+class IngresosEmpresa(Screen):
+  nameIngresos = 
+  
+# Pagina para Ingreso de Gastos
+class GastosEmpresa(Screen):
+    pass
+# Pagina para muestra de Balance
+class BalanceEmpresa(Screen):
+    pass
 
 
-#### Declaro manejador de ventanas ####
+############## Declaro manejador de ventanas ##############
 class WindowManager(ScreenManager):
     pass
 
 ###################### Fin de clases, Definicion de instantias #########3################
+###################### Defino funciones necesarias ######################
+def ir_login_persona(*args):
+    sm.current = "loginpersona"
 
+def ir_login_empresa(*args):
+    sm.current = "loginempresa"
+
+
+###################### Fin de funciones necesarias ######################
 # Defino el archivo donde se definira el estilo y formato de la pantalla
 kv = Builder.load_file("estilo.kv")
 
@@ -85,7 +116,7 @@ kv = Builder.load_file("estilo.kv")
 sm = WindowManager()
 
 # Declaro las intancias de las funciones Persona y Empresa
-persona = funPersona.Presonal()
+persona = funPersona.Personal()
 empresa = funEmpresa.Empresa()
 
 general = Funcs.funcs()
@@ -94,14 +125,15 @@ general = Funcs.funcs()
 ventanasPersona = [Menu(name="menu"), LoginPersona(name="loginpersona"), CreateUserPersona(name="crearpersona"), 
                     IngresosPersona(name="ingresospersona"), GastosPersona(name="gastospersona"), 
                     BalancePersona(name="balancepersona")]
-# ventanasEmpresa = []
-# sm.add_widget(Menu(name="menu"))    #Menu
+ ventanasEmpresa = [LoginEmpresa(name="loginempresa"), CreateUserEmpresa(name="crearempresa"), 
+                    IngresosEmpresa(name="ingresosempresa"), GastosEmpresa(name="gastosempresa"), 
+                    BalanceEmpresa(name="balanceempresa")]
 
 for ventana in ventanasPersona:     #Ventanas para Persona
     sm.add_widget(ventana)
 
-# for ventana in ventanasEmpresa:     #Ventanas para Empresa
-#     sm.add_widget(ventana)
+for ventana in ventanasEmpresa:     #Ventanas para Empresa
+    sm.add_widget(ventana)
 
 # Defino la pantalla inicial
 sm.current = "menu"

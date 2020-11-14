@@ -18,6 +18,7 @@ def main():
     funEmpresa.gastosEmpresa()
     funEmpresa.balanceEmpresa()
 
+
     funEmpresa.impuestosEmpresa()
 
 if __name__ == "__main__":
