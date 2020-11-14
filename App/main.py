@@ -148,7 +148,6 @@ class LoginEmpresa(Screen):
     
 # Pagina para crear usuario
 class CreateUserEmpresa(Screen):
-  
     name = ObjectProperty(None)
     persona.crearCuenta(str(name))
 # Pagina para registra de Ingresos

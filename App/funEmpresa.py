@@ -2,7 +2,7 @@ import os
 import csv
 from datetime import date
 import pandas as pd
-
+#definir el login y setup de la empresa (creo que pueden ser iguales)
 class Empresa:
     #la función de setup se puede correr después de que se cree el usuario, no lleva ningún parámetro
     def setupEmpresa(self):
@@ -40,7 +40,7 @@ class Empresa:
             writer = csv.writer(f)
             writer.writerow([cuenta])
 
-    def ingresosEmpresa(self):
+    def ingresosEmpresa(self, textCuenta, textMonto, textConcepto): #redefinir path en todas  las funciones
         path = './config/' + input("Indique el nombre de la cuenta a la que desea realizar el cambio: \n")
         ingreso = float(input("Digite el monto de su ingresos en colones: "))
         fecha = date.today().strftime("%d/%m/%Y")
