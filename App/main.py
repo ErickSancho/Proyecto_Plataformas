@@ -53,36 +53,104 @@ class Menu(Screen):
 
 # Clase para la pantalla de ingreso a sistema personal.
 class LoginPersona(Screen):
-  sm.current = ""
-    pass
+    #Aquí van los login de la persona
+    nameUser = ObjectProperty(None)
+    namePassword = ObjectProperty(None) 
+
+    login = False
+    i = 0
+    def check_userpassword(self):        
+        self.login = persona.loginUser(self.nameUser.text, self.namePassword.text)
+        if self.login == False:
+            self.i = self.i+1
+            self.Fallo_UC()
+        # Verifico si se acabaron los intentos.
+        if self.i >= 5:
+            self.i = 0
+            sm.current = "menu"
+        
+    
+    def Fallo_UC(self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='Usuario y/o contraseña incorrecto(s), intente de nuevo',
+                content=content,
+                auto_dismiss=False,
+                size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_press=pop.dismiss)
+        
+        self.nameUser.text = ""
+        self.namePassword.text = ""
+
+        pop.open()
+
 # Pagina para crear usuario
 class CreateUserPersona(Screen):
-  
-  name = ObjectProperty(None)
-  persona.crearCuenta(str(name))
+    name = ObjectProperty(None)
+    persona.crearCuenta(name)
 # Pagina para registra de Ingresos
+
+class MenuPersona (Screen):
+  pass
+
 class IngresosPersona(Screen):
-  nameIngresos = ObjectProperty(None)
-  persona.ingresos(nameIngresos)
+    nameIngresos = ObjectProperty(None)
+    montoIngresos = ObjectProperty(None)
+    conceptoIngresos = ObjectProperty(None)
+    persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
   
 # Pagina para Ingreso de Gastos
 class GastosPersona(Screen):
-    pass
+    nameGastos = ObjectProperty(None)
+    montoGastos = ObjectProperty(None)
+    conceptoGastos = ObjectProperty (None)
+    persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
 # Pagina para muestra de Balance
 class BalancePersona(Screen):
-    pass
+    nameBalance = ObjectProperty(None)
+    persona.balance(self.nameBalance.text)
 
 ######################### Defino las clases de pantallas para empresas #########################
 
 # Clase para la pantalla de ingreso a sistema personal.
 class LoginEmpresa(Screen):
-  sm.current = ""
-    pass
+        #Aquí van los login de la persona
+    nameUser = ObjectProperty(None)
+    namePassword = ObjectProperty(None) 
+
+    login = False
+    i = 0
+    def check_userpassword(self):        
+        # self.login = persona.loginUser(self.nameUser.text, self.namePassword.text)
+        print(self.nameUser.text, self.namePassword.text)
+        if self.login == False:
+            self.i = self.i+1
+            self.Fallo_UC()
+        # Verifico que no cumple el limite.
+        if self.i >= 5:
+            self.i = 0
+            sm.current = "menu"
+        
+    
+    def Fallo_UC(self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='Usuario y/o contraseña incorrecto(s), intente de nuevo',
+                content=content,
+                auto_dismiss=False,
+                size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_press=pop.dismiss)
+        
+        self.nameUser.text = ""
+        self.namePassword.text = ""
+
+        pop.open()
+    
 # Pagina para crear usuario
 class CreateUserEmpresa(Screen):
   
-  name = ObjectProperty(None)
-  persona.crearCuenta(str(name))
+    name = ObjectProperty(None)
+    persona.crearCuenta(str(name))
 # Pagina para registra de Ingresos
 class IngresosEmpresa(Screen):
   nameIngresos = 

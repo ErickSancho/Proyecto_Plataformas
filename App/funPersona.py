@@ -26,7 +26,7 @@ class Personal:
 
 
     def crearCuenta(self,text):
-        cuenta = text
+        cuenta = str(text)
         path = './config/'+ cuenta
         os.mkdir(path)
 
@@ -40,27 +40,25 @@ class Personal:
             writer.writerow(['Monto','Fecha',])
 
 
-
-    def ingresos (self, cuentaIncome):
-        ingreso = str(TextIncome)
+    def ingresos (self, cuentaIncome, montoIncome, conceptoIngreso):
+        concepto = str(conceptoIngreso)
         fecha = date.today().strftime("%d/%m/%Y")
-        nota = input("Indique el concepto del ingreso:\n")
+        monto = float (montoIncome)
         path = './config/' + cuentaIncome + '/'
         
         with open(os.path.join(path, 'registro.csv'), "a") as f:
                 writer = csv.writer(f)
-                writer.writerow([ingreso,fecha,nota])
+                writer.writerow([monto,fecha,concepto])
 
 
-    def gastos(self, cuentaGasto):
-        gasto = float(input("Digite el monto de su gasto en colones: "))*(-1)
+    def gastos(self, cuentaGasto, montoGasto, conceptoGasto):
+        gasto = float(montoGasto)*(-1)
         fecha = date.today().strftime("%d/%m/%Y")
-        nota = input("Indique el concepto del gasto:\n")
         path = './config/' + cuentaGasto + '/'
-        
+        concepto = str(conceptoGasto)
         with open(os.path.join(path, 'registro.csv'), "a") as f:
             writer = csv.writer(f)
-            writer.writerow([gasto,fecha,nota])
+            writer.writerow([gasto,fecha,concepto])
 
 
     def balance(self, cuentaBalance):

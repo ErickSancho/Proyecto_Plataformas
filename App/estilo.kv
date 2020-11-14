@@ -17,32 +17,116 @@
                 root.EntraEmpresa()
 
 <LoginPersona>:
-  FloatLayout:
-    TextInput:
-      pos_hint: {"x":0.5, "top":0.8-0.13*2}
-      size_hint: 0.4, 0.12
-      id: passw
-      multiline: False
-      font_size: (root.width**2 + root.height**2) / 14**4
-    Label:
-                size_hint: 0.5,0.12
-                pos_hint: {"x":0, "top":0.8-0.13*2}
-                text: "Password: "
-                font_size: (root.width**2 + root.height**2) / 14**4
+    nameUser: usuario
+    namePassword: contrasena
+    GridLayout:
+        cols:1
+        size: root.width, root.height
 
-<LabelCreateAccount>:
-  Label:
-    size_hint: 0.5,0.12
-    pos_hint: {"x":0, "top":0.8-0.13*2}
-    text: "Digite el nombre de la cuenta a ingresar: "
-    font_size: (root.width**2 + root.height**2) / 14**4
+        GridLayout:
+            cols:2
+
+            Label:
+                size:100,500
+                text:"Usuario: "
+                font_size:20
+            
+            TextInput:
+                id:usuario
+                multiline:False    
+                size:100,500
+            
+            Label:
+                text:"Contraseña: "
+                size:100,500
+                font_size:20
+            
+            TextInput:
+                id:contrasena
+                multiline:False
+                size:100,500
+        Button:
+            text: "Submit"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+
 
 <CreateUserPersona>:
-  name:nameAccount
-  FloatLayout:
-    TextInput:
-      pos_hint: {"x":0.5, "top":0.8-0.13*2}
-      size_hint: 0.4, 0.12
-      id: nameAccount
-      multiline: False
-      font_size: (root.width**2 + root.height**2) / 14**4
+    name:nameAccount
+    FloatLayout:
+        TextInput:
+            pos_hint: {"x":0.5, "top":0.8-0.13*2}
+            size_hint: 0.4, 0.12
+            id: nameAccount
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+<IngresosPersona>:
+    name:nameIngresos
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        
+        Label:
+            text: "Digite el nombre de la cuenta a ingresar: "
+            font_size: self.width*0.05
+        
+        TextInput:
+            id: nameIngresos
+            multiline: False
+            font_size: 20
+        
+        
+        Label:
+            text: "Digite el monto del ingreso: "
+            font_size: self.width*0.05
+        
+        TextInput:
+            id: montoIngresos
+            multiline: False
+            font_size: 20
+        
+
+        Label:
+            text: "Digite el concepto del ingreso: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: conceptoIngresos
+            multiline: False
+            font_size: 20
+
+<GastosPersona>:
+    name:nameGastos
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+    
+        Label:
+            text: "Digite el nombre de la cuenta a indicar el gasto: "
+            font_size: self.width*0.05
+        TextInput:
+            id: nameGastos
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Label:
+            text: "Digite el monto del gasto: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: montoGastos
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Label:
+            text: "Digite el concepto del gasto: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: conceptoGastos
+            multiline: False
+            font_size: root.width + root.height
