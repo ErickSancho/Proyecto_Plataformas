@@ -22,6 +22,22 @@ class Empresa:
                 writer = csv.writer(f)
                 writer.writerow(['Cuenta'])
 
+    def createUser(self, user, password):
+      usr = str (user)
+      pswrd = str (password)
+      with open(os.path.join('./config/','userData.csv'), "w") as f:
+            writer = csv.writer(f)
+            writer.writerow([usr,pswrd])
+    
+    def loginUser(self, textUser, textPassword):
+      usr = str(textUser)
+      pswrd = str(textPassword)
+      user = pd.read_csv('./config/userData.csv')
+      if user[0][0] == usr and user[0][1] == pswrd:
+        return True
+      else:
+        return False
+    
     def crearCuentaEmpresa(self, TexInput):
         cuenta = input("Digite el nombre de la cuenta a crear (recuerde que este debe ser ilustrativo para saber a qué hace alusión: \n")
         path = './config/'+ cuenta
@@ -40,28 +56,31 @@ class Empresa:
             writer = csv.writer(f)
             writer.writerow([cuenta])
 
-    def ingresosEmpresa(self, textCuenta, textMonto, textConcepto): #redefinir path en todas  las funciones
-        path = './config/' + input("Indique el nombre de la cuenta a la que desea realizar el cambio: \n")
-        ingreso = float(input("Digite el monto de su ingresos en colones: "))
+    def ingresosEmpresa(self, textCuenta, textMonto, textConcepto): 
+        cuenta = str(textCuenta)
+        path = './config/' + cuenta
+        ingreso = float(textMonto)
         fecha = date.today().strftime("%d/%m/%Y")
-        nota = input("Indique el concepto del ingreso:\n")
+        nota = str(textConcepto)
 
         with open(os.path.join(path, 'registro.csv'), "a") as f:
                 writer = csv.writer(f)
                 writer.writerow([ingreso,fecha,nota])
 
-    def gastosEmpresa(self):
-        path = './config/' + input("Indique el nombre de la cuenta a la que desea realizar el cambio: \n")
-        gasto = float(input("Digite el monto de su gasto en colones: "))*(-1)
+    def gastosEmpresa(self, textCuenta, textMonto, textConcepto):
+        cuenta = str(textCuenta)
+        path = './config/' + cuenta
+        gasto = float(textMonto)*(-1)
         fecha = date.today().strftime("%d/%m/%Y")
-        nota = input("Indique el concepto del gasto:\n")
+        nota = str(textConcepto)
         
         with open(os.path.join(path, 'registro.csv'), "a") as f:
             writer = csv.writer(f)
             writer.writerow([gasto,fecha,nota])
 
-    def balanceEmpresa(self):
-        path = './config/' + input("Indique el nombre de la cuenta de la cual desea conocer el balance: \n") +'/'
+    def balanceEmpresa(self, textCuenta):
+        cuenta = str(textCuenta)
+        path = './config/' + cuenta +'/'
         registro = path + 'registro.csv'
         data = pd.read_csv(registro)
         
@@ -77,8 +96,8 @@ class Empresa:
         prueba = pd.read_csv(prueabPath)
         print (prueba)
 
-    def impuestosEmpresa(self):
-        estadoEntidadJuridica = input("Indique si su empresa se encuentra en trámite de inscripción ante Registro de personas jurídicas (s/n): ")
+    def impuestosEmpresa(self,textEstado):
+        estadoEntidadJuridica = str(textEstado)
         valorNeto = 0
         folders = 0
         impuestoSobreEntJur = 0
@@ -121,8 +140,6 @@ class Empresa:
             writer.writerow([impuestoSobreEntJur,'Impuesto sobre entidades jurídicas'])
             writer.writerow([impuestoSobreRenta,'Impuesto sobre la renta'])
 
-        imp = pd.read_csv('./config/impuesto.csv')
-        print (imp)
 
 
     

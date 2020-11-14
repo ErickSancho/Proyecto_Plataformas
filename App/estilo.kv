@@ -58,17 +58,51 @@
 
 
 <CreateUserPersona>:
-    name:nameAccount
-    FloatLayout:
+    nameAccount:nameAccount
+    namePassword:namePassword
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        
+        Label:
+            text: "Digite el nombre de usuario: "
+            font_size: self.width*0.05
+        
         TextInput:
-            pos_hint: {"x":0.5, "top":0.8-0.13*2}
-            size_hint: 0.4, 0.12
             id: nameAccount
             multiline: False
-            font_size: (root.width**2 + root.height**2) / 14**4
+            font_size: 20
+
+        Label:
+            text: "Digite la contraseña:"
+            font_size: self.width*0.05
+                
+        TextInput:
+            id: namePassword
+            multiline: False
+            font_size: 20
+            
+
+<CreateAccountPersona>:
+    account: account
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        Label:
+            text: "Digite el nombre de la cuenta bancaria a crear: "
+            font_size: self.width*0.05
+        
+        TextInput:
+            id: account
+            multiline: False
+            font_size: 20
 
 <IngresosPersona>:
-    name:nameIngresos
+    nameIngresos:nameIngresos
+    montoIngresos:montoIngresos
+    conceptoIngresos:conceptoIngresos
 
     GridLayout:
         cols:2
@@ -105,7 +139,9 @@
             font_size: 20
 
 <GastosPersona>:
-    name:nameGastos
+    nameGastos:nameGastos
+    montoGastos:montoGastos
+    conceptoGastos:conceptoGastos
 
     GridLayout:
         cols:2
@@ -138,7 +174,7 @@
             font_size: root.width + root.height
 
 <BalancePersona>:
-    name: nameBalance
+    nameBalance: nameBalance
 
     GridLayout:
         cols:2
@@ -152,4 +188,185 @@
             id:nameBalance
             multiline: False
             font_size: root.width + root.height
+
+
+<LoginEmpresa>:
+    nameUser: usuario
+    namePassword: contrasena
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+
+            Label:
+                size:100,500
+                text:"Usuario: "
+                font_size:20
             
+            TextInput:
+                id:usuario
+                multiline:False    
+                size:100,500
+            
+            Label:
+                text:"Contraseña: "
+                size:100,500
+                font_size:20
+            
+            TextInput:
+                id:contrasena
+                multiline:False
+                size:100,500
+        Button:
+            text: "Submit"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+
+<CreateUserEmpresa>:
+    nameAccount:nameAccount
+    namePassword:namePassword
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+        
+        Label:
+            text: "Digite el nombre de usuario: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id:nameAccount
+            multiline: False
+            font_size: root.width + root.height
+
+        Label:
+            text: "Digite su contraseña:"
+            font_size: self.width*0.05
+
+        TextInput:
+            id:namePassword
+            multiline: False
+            font_size: root.width + root.height
+
+
+<CreateAccountEmpresa>:
+    account:nameAccount
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+        
+        Label:
+            text: "Digite el nombre de la cuenta bancaria a ingresar: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id:nameAccount
+            multiline: False
+            font_size: root.width + root.height
+
+<IngresosEmpresa>:
+    nameCuenta:nameCuenta
+    nameMonto:nameMonto
+    nameConcepto:nameConcepto
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        
+        Label:
+            text: "Digite el nombre de la cuenta a ingresar: "
+            font_size: self.width*0.05
+        
+        TextInput:
+            id: nameCuenta
+            multiline: False
+            font_size: 20
+        
+        
+        Label:
+            text: "Digite el monto del ingreso: "
+            font_size: self.width*0.05
+        
+        TextInput:
+            id: nameMonto
+            multiline: False
+            font_size: 20
+        
+
+        Label:
+            text: "Digite el concepto del ingreso: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: nameConcepto
+            multiline: False
+            font_size: 20
+
+<GastosEmpresa>:
+    nameCuenta:nameCuenta
+    nameMonto:nameMonto
+    nameConcepto:nameConcepto
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+    
+        Label:
+            text: "Digite el nombre de la cuenta a indicar el gasto: "
+            font_size: self.width*0.05
+        TextInput:
+            id: nameCuenta
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Label:
+            text: "Digite el monto del gasto: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: nameMonto
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Label:
+            text: "Digite el concepto del gasto: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: nameConcepto
+            multiline: False
+            font_size: root.width + root.height
+
+<BalanceEmpresa>:
+    nameBalance: nameBalance
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        Label:
+            text: "Digite el nombre de la cuenta de la cual desea conocer el balance:"
+            font_size: self.width*0.05
+
+        TextInput:
+            id:nameBalance
+            multiline: False
+            font_size: root.width + root.height
+
+<ImpuestoEmpresa>:
+    nameEstado:nameEstado
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        Label:
+            text: "Indique si su empresa se encuentra en trámite de inscripción ante Registro de personas jurídicas(s/n): "
+            font_size: self.width*0.05
+
+        TextInput:
+            id:nameEstado
+            multiline: False
+            font_size: root.width + root.height

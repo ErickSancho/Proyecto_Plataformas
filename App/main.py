@@ -86,9 +86,17 @@ class LoginPersona(Screen):
 
 # Pagina para crear usuario
 class CreateUserPersona(Screen):
-    name = ObjectProperty(None)
-    persona.crearCuenta(name)
-# Pagina para registra de Ingresos
+    nameAccount = ObjectProperty(None)
+    namePassword = ObjectProperty (None)
+    persona.createUser(self.nameAccount.text,self.namePassword.text)
+
+
+#Pagina para crear cuentas:
+class CreateAccountPersona (Screen):
+    account = ObjectProperty(None)
+    persona.crearCuenta(self.account.text)
+
+# Pagina para registro de Ingresos
 
 class MenuPersona (Screen):
   pass
@@ -121,7 +129,7 @@ class LoginEmpresa(Screen):
     login = False
     i = 0
     def check_userpassword(self):        
-        # self.login = persona.loginUser(self.nameUser.text, self.namePassword.text)
+        self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
         print(self.nameUser.text, self.namePassword.text)
         if self.login == False:
             self.i = self.i+1
@@ -148,18 +156,36 @@ class LoginEmpresa(Screen):
     
 # Pagina para crear usuario
 class CreateUserEmpresa(Screen):
-    name = ObjectProperty(None)
-    persona.crearCuenta(str(name))
+    nameAccount = ObjectProperty(None)
+    namePassword = ObjectProperty (None)
+    empresa.createUser(self.nameAccount.text,self.namePassword.text)
+
+#Pagina para crear cuentas bancarias
+class CreateAccountEmpresa(Screen):
+    account = ObjectProperty(None)
+    empresa.crearCuentaEmpresa(self.account.text)
+
 # Pagina para registra de Ingresos
 class IngresosEmpresa(Screen):
-  pass
+    nameCuenta = ObjectProperty(None)
+    nameMonto = ObjectProperty(None)
+    nameConcepto = ObjectProperty(None)
+    empresa.ingresosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
   
 # Pagina para Ingreso de Gastos
 class GastosEmpresa(Screen):
-    pass
+    nameCuenta = ObjectProperty(None)
+    nameMonto = ObjectProperty(None)
+    nameConcepto = ObjectProperty(None)
+    empresa.gastosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
 # Pagina para muestra de Balance
 class BalanceEmpresa(Screen):
-    pass
+    nameBalance = ObjectProperty(None)
+    empresa.balanceEmpresa(self.nameBalance.text)
+
+class ImpuestoEmpresa(Screen):
+    nameEstado = ObjectProperty(None)
+    empresa.impuestosEmpresa(self.nameEstado.text)
 
 
 ############## Declaro manejador de ventanas ##############
