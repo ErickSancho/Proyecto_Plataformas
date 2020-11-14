@@ -146,4 +146,90 @@
             id:nameBalance
             multiline: False
             font_size: root.width + root.height
-            
+
+
+<IngresosEmpresa>:
+    name:nameCuenta
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        
+        Label:
+            text: "Digite el nombre de la cuenta a ingresar: "
+            font_size: self.width*0.05
+        
+        TextInput:
+            id: nameCuenta
+            multiline: False
+            font_size: 20
+        
+        
+        Label:
+            text: "Digite el monto del ingreso: "
+            font_size: self.width*0.05
+        
+        TextInput:
+            id: nameMonto
+            multiline: False
+            font_size: 20
+        
+
+        Label:
+            text: "Digite el concepto del ingreso: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: nameConcepto
+            multiline: False
+            font_size: 20
+
+<GastosPersona>:
+    name:nameGastos
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+    
+        Label:
+            text: "Digite el nombre de la cuenta a indicar el gasto: "
+            font_size: self.width*0.05
+        TextInput:
+            id: nameGastos
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Label:
+            text: "Digite el monto del gasto: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: montoGastos
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Label:
+            text: "Digite el concepto del gasto: "
+            font_size: self.width*0.05
+
+        TextInput:
+            id: conceptoGastos
+            multiline: False
+            font_size: root.width + root.height
+
+<BalancePersona>:
+    name: nameBalance
+
+    GridLayout:
+        cols:2
+        size: root.width, root.height
+
+        Label:
+            text: "Digite el nombre de la cuenta de la cual desea conocer el balance:"
+            font_size: self.width*0.05
+
+        TextInput:
+            id:nameBalance
+            multiline: False
+            font_size: root.width + root.height

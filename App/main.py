@@ -152,14 +152,21 @@ class CreateUserEmpresa(Screen):
     persona.crearCuenta(str(name))
 # Pagina para registra de Ingresos
 class IngresosEmpresa(Screen):
-  pass
+    nameCuenta = ObjectProperty(None)
+    nameMonto = ObjectProperty(None)
+    nameConcepto = ObjectProperty(None)
+    empresa.ingresosEmpresa(self.nameCuenta,self.nameMonto,self.nameConcepto)
   
 # Pagina para Ingreso de Gastos
 class GastosEmpresa(Screen):
-    pass
+    nameCuenta = ObjectProperty(None)
+    nameMonto = ObjectProperty(None)
+    nameConcepto = ObjectProperty(None)
+    empresa.gastosEmpresa(self.nameCuenta,self.nameMonto,self.nameConcepto)
 # Pagina para muestra de Balance
 class BalanceEmpresa(Screen):
-    pass
+    nameBalance = ObjectProperty(None)
+    empresa.balanceEmpresa(self.nameBalance)
 
 
 ############## Declaro manejador de ventanas ##############
