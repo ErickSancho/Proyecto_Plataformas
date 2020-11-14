@@ -19,9 +19,13 @@
 <LoginPersona>:
     nameUser: usuario
     namePassword: contrasena
+
+    
+
     GridLayout:
         cols:1
-        size: root.width, root.height
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+
 
         GridLayout:
             cols:2
@@ -45,10 +49,12 @@
                 id:contrasena
                 multiline:False
                 size:100,500
+                password: True
         Button:
             text: "Submit"
             pos_hint:{"root.x":0.5, "root.y": 0.5}
             size_hint:0.25, 0.2
+            on_release: root.check_userpassword()
 
 
 <CreateUserPersona>:
