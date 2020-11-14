@@ -153,7 +153,7 @@ class CreateUserEmpresa(Screen):
     persona.crearCuenta(str(name))
 # Pagina para registra de Ingresos
 class IngresosEmpresa(Screen):
-  nameIngresos = 
+  pass
   
 # Pagina para Ingreso de Gastos
 class GastosEmpresa(Screen):
@@ -190,12 +190,8 @@ empresa = funEmpresa.Empresa()
 general = Funcs.funcs()
 
 # Defino las pantallas al manejador de ventanas
-ventanasPersona = [Menu(name="menu"), LoginPersona(name="loginpersona"), CreateUserPersona(name="crearpersona"), 
-                    IngresosPersona(name="ingresospersona"), GastosPersona(name="gastospersona"), 
-                    BalancePersona(name="balancepersona")]
- ventanasEmpresa = [LoginEmpresa(name="loginempresa"), CreateUserEmpresa(name="crearempresa"), 
-                    IngresosEmpresa(name="ingresosempresa"), GastosEmpresa(name="gastosempresa"), 
-                    BalanceEmpresa(name="balanceempresa")]
+ventanasPersona = [Menu(name="menu"), LoginPersona(name="loginpersona"), CreateUserPersona(name="crearpersona"), IngresosPersona(name="ingresospersona"), GastosPersona(name="gastospersona"), BalancePersona(name="balancepersona")]
+ventanasEmpresa = [LoginEmpresa(name="loginempresa"), CreateUserEmpresa(name="crearempresa"), IngresosEmpresa(name="ingresosempresa"), GastosEmpresa(name="gastosempresa"), BalanceEmpresa(name="balanceempresa")]
 
 for ventana in ventanasPersona:     #Ventanas para Persona
     sm.add_widget(ventana)

@@ -68,13 +68,6 @@ class Personal:
         total = data['Monto'].sum()
         print(total)
         fecha = date.today().strftime("%d/%m/%Y")
-        print (fecha)
-        print("\n")
-        with open(os.path.join(path, 'balance.csv'), "a") as f:
+        with open(os.path.join(registro, 'balance.csv'), "a") as f:
             writer = csv.writer(f)
             writer.writerow([total,fecha])
-
-        prueabPath = path + 'balance.csv'
-        prueba = pd.read_csv(prueabPath)
-        print (prueba)
-    

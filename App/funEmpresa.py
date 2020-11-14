@@ -4,6 +4,7 @@ from datetime import date
 import pandas as pd
 
 class Empresa:
+    #la función de setup se puede correr después de que se cree el usuario, no lleva ningún parámetro
     def setupEmpresa(self):
         check = os.path.isdir('config')
         if (check == False):
@@ -21,7 +22,7 @@ class Empresa:
                 writer = csv.writer(f)
                 writer.writerow(['Cuenta'])
 
-    def crearCuentaEmpresa(self):
+    def crearCuentaEmpresa(self, TexInput):
         cuenta = input("Digite el nombre de la cuenta a crear (recuerde que este debe ser ilustrativo para saber a qué hace alusión: \n")
         path = './config/'+ cuenta
         os.mkdir(path)
