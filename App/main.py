@@ -88,13 +88,13 @@ class LoginPersona(Screen):
 class CreateUserPersona(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
-    persona.createUser(nameAccount,namePassword)
+    persona.createUser(self.nameAccount.text,self.namePassword.text)
 
 
 #Pagina para crear cuentas:
 class CreateAccountPersona (Screen):
     account = ObjectProperty(None)
-    persona.crearCuenta(self.account)
+    persona.crearCuenta(self.account.text)
 
 # Pagina para registro de Ingresos
 
@@ -170,18 +170,18 @@ class IngresosEmpresa(Screen):
     nameCuenta = ObjectProperty(None)
     nameMonto = ObjectProperty(None)
     nameConcepto = ObjectProperty(None)
-    empresa.ingresosEmpresa(self.nameCuenta,self.nameMonto,self.nameConcepto)
+    empresa.ingresosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
   
 # Pagina para Ingreso de Gastos
 class GastosEmpresa(Screen):
     nameCuenta = ObjectProperty(None)
     nameMonto = ObjectProperty(None)
     nameConcepto = ObjectProperty(None)
-    empresa.gastosEmpresa(self.nameCuenta,self.nameMonto,self.nameConcepto)
+    empresa.gastosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
 # Pagina para muestra de Balance
 class BalanceEmpresa(Screen):
     nameBalance = ObjectProperty(None)
-    empresa.balanceEmpresa(self.nameBalance)
+    empresa.balanceEmpresa(self.nameBalance.text)
 
 class ImpuestoEmpresa(Screen):
     nameEstado = ObjectProperty(None)
