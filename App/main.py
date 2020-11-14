@@ -67,6 +67,9 @@ class LoginPersona(Screen):
         if self.login == False:
             self.i = self.i+1
             self.Fallo_UC()
+        else:
+            persona.ActualUser(self.nameUser.text)
+            sm.current = "menupersona"
         # Verifico si se acabaron los intentos.
         if self.i >= 5:
             self.i = 0
@@ -93,6 +96,21 @@ class CreateUserPersona(Screen):
     namePassword = ObjectProperty (None)
     def createUser(self):
         persona.createUser(self.nameAccount.text,self.namePassword.text)
+        self.nameAccount.text = ""
+        self.namePassword.text = ""
+        sm.current = "createaccountpersona"
+    
+    # def Crearbank(self):
+        # content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        # pop = Popup(title='A continuacion crearemos su primer cuenta!',
+        #         content=content,
+        #         auto_dismiss=False,
+        #         size_hint=(None, None), size=(350, 200))
+
+        # content.bind(on_release=pop.dismiss)
+        
+        # pop.open()
+
 
 
 #Pagina para crear cuentas:
@@ -100,11 +118,13 @@ class CreateAccountPersona (Screen):
     account = ObjectProperty(None)
     def createAccount(self):
         persona.crearCuenta(self.account.text)
+        sm.current="menupersona"
+        
 
 # Pagina para registro de Ingresos
 
 class MenuPersona (Screen):
-  pass
+    pass
 
 class IngresosPersona(Screen):
     nameIngresos = ObjectProperty(None)
@@ -112,6 +132,10 @@ class IngresosPersona(Screen):
     conceptoIngresos = ObjectProperty(None)
     def ingresos(self):
         persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
+        self.nameIngresos.text = ""
+        self.montoIngresos.text = ""
+        self.conceptoIngresos.text = ""
+
   
 # Pagina para Ingreso de Gastos
 class GastosPersona(Screen):
@@ -120,6 +144,9 @@ class GastosPersona(Screen):
     conceptoGastos = ObjectProperty (None)
     def gastos(self):
         persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
+        self.nameGastos.text = ""
+        self.montoGastos.text = ""
+        self.conceptoGastos = ""
 # Pagina para muestra de Balance
 class BalancePersona(Screen):
     nameBalance = ObjectProperty(None)
@@ -229,7 +256,7 @@ empresa = funEmpresa.Empresa()
 general = Funcs.funcs()
 
 # Defino las pantallas al manejador de ventanas
-ventanasPersona = [Menu(name="menu"), LoginPersona(name="loginpersona"), CreateUserPersona(name="crearpersona"), IngresosPersona(name="ingresospersona"), GastosPersona(name="gastospersona"), BalancePersona(name="balancepersona")]
+ventanasPersona = [Menu(name="menu"), LoginPersona(name="loginpersona"), CreateUserPersona(name="crearpersona"), IngresosPersona(name="ingresospersona"), GastosPersona(name="gastospersona"), BalancePersona(name="balancepersona"), MenuPersona(name="menupersona"), CreateAccountPersona(name="createaccountpersona")]
 ventanasEmpresa = [LoginEmpresa(name="loginempresa"), CreateUserEmpresa(name="crearempresa"), IngresosEmpresa(name="ingresosempresa"), GastosEmpresa(name="gastosempresa"), BalanceEmpresa(name="balanceempresa")]
 
 for ventana in ventanasPersona:     #Ventanas para Persona

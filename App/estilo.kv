@@ -55,123 +55,179 @@
             pos_hint:{"root.x":0.5, "root.y": 0.5}
             size_hint:0.25, 0.2
             on_release: root.check_userpassword()
+        Button:
+            text: "Crear cuenta"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+            on_release: app.root.current = "crearpersona"
 
 
 <CreateUserPersona>:
     nameAccount:nameAccount
     namePassword:namePassword
     GridLayout:
-        cols:2
-        size: root.width, root.height
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
 
-        
-        Label:
-            text: "Digite el nombre de usuario: "
-            font_size: self.width*0.05
-        
-        TextInput:
-            id: nameAccount
-            multiline: False
-            font_size: 20
+        GridLayout:
+            cols:2
+            size: root.width, root.height
+            Label:
+                text: "Digite el nombre de usuario: "
+                font_size: self.width*0.05
+            
+            TextInput:
+                id: nameAccount
+                multiline: False
+                font_size: 20
 
-        Label:
-            text: "Digite la contraseña:"
-            font_size: self.width*0.05
-                
-        TextInput:
-            id: namePassword
-            multiline: False
-            font_size: 20
+            Label:
+                text: "Digite la contraseña:"
+                font_size: self.width*0.05
+                    
+            TextInput:
+                id: namePassword
+                multiline: False
+                font_size: 20
+
+        Button:
+            text: "Crear cuenta"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+            on_release: root.createUser()
+
             
 
 <CreateAccountPersona>:
     account: account
     GridLayout:
-        cols:2
-        size: root.width, root.height
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+        GridLayout:
+            cols:2
+            size: root.width, root.height
 
-        Label:
-            text: "Digite el nombre de la cuenta bancaria a crear: "
-            font_size: self.width*0.05
-        
-        TextInput:
-            id: account
-            multiline: False
-            font_size: 20
+            Label:
+                text: "Digite el nombre de la cuenta bancaria a crear: "
+                font_size: self.width*0.05
+            
+            TextInput:
+                id: account
+                multiline: False
+                font_size: 20
+        Button:
+            text: "Crear cuenta bancaria"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+            on_release: root.createAccount()    
 
 <IngresosPersona>:
     nameIngresos:nameIngresos
     montoIngresos:montoIngresos
     conceptoIngresos:conceptoIngresos
-
     GridLayout:
-        cols:2
-        size: root.width, root.height
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+        GridLayout:
+            cols:2
+            size: root.width, root.height
 
-        
-        Label:
-            text: "Digite el nombre de la cuenta a ingresar: "
-            font_size: self.width*0.05
-        
-        TextInput:
-            id: nameIngresos
-            multiline: False
-            font_size: 20
-        
-        
-        Label:
-            text: "Digite el monto del ingreso: "
-            font_size: self.width*0.05
-        
-        TextInput:
-            id: montoIngresos
-            multiline: False
-            font_size: 20
-        
+            
+            Label:
+                text: "Digite el nombre de la cuenta a ingresar: "
+                font_size: self.width*0.05
+            
+            TextInput:
+                id: nameIngresos
+                multiline: False
+                font_size: 20
+            
+            
+            Label:
+                text: "Digite el monto del ingreso: "
+                font_size: self.width*0.05
+            
+            TextInput:
+                id: montoIngresos
+                multiline: False
+                font_size: 20
+            
 
-        Label:
-            text: "Digite el concepto del ingreso: "
-            font_size: self.width*0.05
+            Label:
+                text: "Digite el concepto del ingreso: "
+                font_size: self.width*0.05
 
-        TextInput:
-            id: conceptoIngresos
-            multiline: False
-            font_size: 20
+            TextInput:
+                id: conceptoIngresos
+                multiline: False
+                font_size: 20
+        GridLayout:
+            cols:2
+            
+            Button:
+                text: "Volver"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: app.root.current = "menupersona"  
+
+            Button:
+                text: "Ingresar"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: root.ingresos()
+            
 
 <GastosPersona>:
     nameGastos:nameGastos
     montoGastos:montoGastos
     conceptoGastos:conceptoGastos
-
     GridLayout:
-        cols:2
-        size: root.width, root.height
-    
-        Label:
-            text: "Digite el nombre de la cuenta a indicar el gasto: "
-            font_size: self.width*0.05
-        TextInput:
-            id: nameGastos
-            multiline: False
-            font_size: (root.width**2 + root.height**2) / 14**4
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+        GridLayout:
+            cols:2
+            size: root.width, root.height
+        
+            Label:
+                text: "Digite el nombre de la cuenta a indicar el gasto: "
+                font_size: self.width*0.05
+            TextInput:
+                id: nameGastos
+                multiline: False
+                font_size: 20
 
-        Label:
-            text: "Digite el monto del gasto: "
-            font_size: self.width*0.05
+            Label:
+                text: "Digite el monto del gasto: "
+                font_size: self.width*0.05
 
-        TextInput:
-            id: montoGastos
-            multiline: False
-            font_size: (root.width**2 + root.height**2) / 14**4
+            TextInput:
+                id: montoGastos
+                multiline: False
+                font_size: 20
 
-        Label:
-            text: "Digite el concepto del gasto: "
-            font_size: self.width*0.05
+            Label:
+                text: "Digite el concepto del gasto: "
+                font_size: self.width*0.05
 
-        TextInput:
-            id: conceptoGastos
-            multiline: False
-            font_size: root.width + root.height
+            TextInput:
+                id: conceptoGastos
+                multiline: False
+                font_size: 20
+
+        GridLayout:
+            cols:2
+            
+            Button:
+                text: "Volver"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: app.root.current = "menupersona"  
+
+            Button:
+                text: "Ingresar"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: root.gastos()
 
 <BalancePersona>:
     nameBalance: nameBalance
@@ -188,6 +244,43 @@
             id:nameBalance
             multiline: False
             font_size: root.width + root.height
+            
+
+
+<MenuPersona>:
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:1
+            padding: root.width*0.15, root.width*0.15, root.width*0.15, root.width*0.15
+            
+            Button:
+                text: "Agregar Ingresos"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: app.root.current = "ingresospersona"
+            
+            Button:
+                text: "Agregar Gastos"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: app.root.current = "gastospersona"
+            
+            Button:
+                text: "Balance"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: app.root.current = "balancepersona"
+            
+            # Button:
+            #     text: "Balance"
+            #     pos_hint:{"root.x":0.5, "root.y": 0.5}
+            #     size_hint:0.25, 0.2
+            #     on_release: app.root.current = "balancepersona"
+
+
 
 
 <LoginEmpresa>:
