@@ -68,7 +68,7 @@ class LoginPersona(Screen):
             self.i = self.i+1
             self.Fallo_UC()
         else:
-            persona.ActualUser(self.nameUser.text)
+            #persona.ActualUser(self.nameUser.text)
             sm.current = "menupersona"
         # Verifico si se acabaron los intentos.
         if self.i >= 5:
@@ -94,22 +94,24 @@ class LoginPersona(Screen):
 class CreateUserPersona(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
+    
     def createUser(self):
         persona.createUser(self.nameAccount.text,self.namePassword.text)
+        persona.ActualUser(self.nameAccount.text)
         self.nameAccount.text = ""
         self.namePassword.text = ""
         sm.current = "createaccountpersona"
     
-    # def Crearbank(self):
-        # content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
-        # pop = Popup(title='A continuacion crearemos su primer cuenta!',
-        #         content=content,
-        #         auto_dismiss=False,
-        #         size_hint=(None, None), size=(350, 200))
+    def Crearbank(self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='A continuacion crearemos su primer cuenta!',
+                content=content,
+                auto_dismiss=False,
+                size_hint=(None, None), size=(350, 200))
 
-        # content.bind(on_release=pop.dismiss)
+        content.bind(on_release=pop.dismiss)
         
-        # pop.open()
+        pop.open()
 
 
 

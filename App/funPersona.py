@@ -21,20 +21,34 @@ class Personal:
         
         usr = str (user)
         pswrd = str (password)
-        with open(os.path.join('./config/userData.csv'), "w") as f:
-                writer = csv.writer(f)
-                writer.writerow([usr,pswrd])
+        checkFolder = os.path.isdir('./config/Persona/' + usr)
+        checkFile = os.path.isfile('./config/userData.csv')
+        if checkFolder == False and checkFile == True:
+            os.mkdir('./config/Persona/' + usr)
+            with open(os.path.join('./config/userData.csv'), "a") as f:
+                    writer = csv.writer(f)
+                    writer.writerow([usr,pswrd])
+
+        elif checkFile == False and checkFolder == False:
+            os.mkdir('./config/Persona/' + usr)
+            with open(os.path.join('./config/userData.csv'), "w") as f:
+                    writer = csv.writer(f)
+                    writer.writerow(["User","Password"])
+                    writer.writerow([usr,pswrd])
+
+        elif checkFolder == True:
+            print("Warning")
     
     def loginUser(self, textUser, textPassword):
         usr = str(textUser)
         pswrd = str(textPassword)
-        user = pd.read_csv('./config/userData.csv',header=None)
+        user = pd.read_csv('./config/userData.csv')
 
         numerocuentas = len(user)
-        print(user)
+        print(user['User'][0])
         Flag = False
-        for i in range(0,numerocuentas-1):
-            if str(user[i][0]) == usr and str(user[i][1]) == pswrd:
+        for i in range(0,numerocuentas):
+            if str(user["User"][i]) == usr and str(user["Password"][i]) == pswrd:
                 Flag = True
 
         return Flag
@@ -43,7 +57,7 @@ class Personal:
 
     def crearCuenta(self,text):
         cuenta = str(text)
-        path = self.path + self.Usuarioactual + cuenta
+        path = self.path + self.Usuarioactual + '/'+ cuenta
         os.mkdir(path)
 
         csvPath = path + '/'
