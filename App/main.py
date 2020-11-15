@@ -68,7 +68,7 @@ class LoginPersona(Screen):
             self.i = self.i+1
             self.Fallo_UC()
         else:
-            #persona.ActualUser(self.nameUser.text)
+            persona.ActualUser(self.nameUser.text)
             sm.current = "menupersona"
         # Verifico si se acabaron los intentos.
         if self.i >= 5:
@@ -96,11 +96,27 @@ class CreateUserPersona(Screen):
     namePassword = ObjectProperty (None)
     
     def createUser(self):
-        persona.createUser(self.nameAccount.text,self.namePassword.text)
-        persona.ActualUser(self.nameAccount.text)
-        self.nameAccount.text = ""
-        self.namePassword.text = ""
-        sm.current = "createaccountpersona"
+        newUser = persona.createUser(self.nameAccount.text,self.namePassword.text)
+        if newUser != -1:
+            persona.ActualUser(self.nameAccount.text)
+            self.nameAccount.text = ""
+            self.namePassword.text = ""
+            sm.current = "createaccountpersona"
+        else:
+            self.userNotValid()
+            self.nameAccount.text = ""
+            self.namePassword.text = ""
+            
+    def userNotValid (self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='Ese usuario ya fue creado, o no es un nombre valido. Intente con otro nombre.',
+            content=content,
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_release=pop.dismiss)
+    
+        pop.open()
     
     def Crearbank(self):
         content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
@@ -148,7 +164,7 @@ class GastosPersona(Screen):
         persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
         self.nameGastos.text = ""
         self.montoGastos.text = ""
-        self.conceptoGastos = ""
+        self.conceptoGastos.text = ""
 # Pagina para muestra de Balance
 class BalancePersona(Screen):
     nameBalance = ObjectProperty(None)

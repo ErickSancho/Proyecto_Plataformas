@@ -37,7 +37,7 @@ class Personal:
                     writer.writerow([usr,pswrd])
 
         elif checkFolder == True:
-            print("Warning")
+            return -1
     
     def loginUser(self, textUser, textPassword):
         usr = str(textUser)
@@ -74,7 +74,7 @@ class Personal:
         concepto = str(conceptoIngreso)
         fecha = date.today().strftime("%d/%m/%Y")
         monto = float (montoIncome)
-        path = self.path + self.Usuarioactual + cuentaIncome + '/'
+        path = self.path + self.Usuarioactual +'/' + cuentaIncome + '/'
         
         with open(os.path.join(path, 'registro.csv'), "a") as f:
                 writer = csv.writer(f)
@@ -84,20 +84,22 @@ class Personal:
     def gastos(self, cuentaGasto, montoGasto, conceptoGasto):
         gasto = float(montoGasto)*(-1)
         fecha = date.today().strftime("%d/%m/%Y")
-        path = self.path + self.Usuarioactual + cuentaGasto + '/'
+        path = self.path + self.Usuarioactual + '/' + cuentaGasto + '/'
         concepto = str(conceptoGasto)
+        
         with open(os.path.join(path, 'registro.csv'), "a") as f:
             writer = csv.writer(f)
             writer.writerow([gasto,fecha,concepto])
 
 
     def balance(self, cuentaBalance):
-        registro = self.path + self.Usuarioactual + cuentaBalance + '/registro.csv'
+        registro = self.path + self.Usuarioactual + '/' + cuentaBalance + '/registro.csv'
         data = pd.read_csv(registro)
         
         total = data['Monto'].sum()
         print(total)
         fecha = date.today().strftime("%d/%m/%Y")
+        
         with open(os.path.join(registro, 'balance.csv'), "a") as f:
             writer = csv.writer(f)
             writer.writerow([total,fecha])
