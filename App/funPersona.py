@@ -45,7 +45,6 @@ class Personal:
         user = pd.read_csv('./config/userData.csv')
 
         numerocuentas = len(user)
-        print(user['User'][0])
         Flag = False
         for i in range(0,numerocuentas):
             if str(user["User"][i]) == usr and str(user["Password"][i]) == pswrd:

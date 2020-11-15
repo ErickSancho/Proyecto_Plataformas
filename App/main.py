@@ -59,21 +59,30 @@ class LoginPersona(Screen):
     #Aquí van los login de la persona
     nameUser = ObjectProperty(None)
     namePassword = ObjectProperty(None) 
-
+    
     login = False
     i = 0
-    def check_userpassword(self):        
-        self.login = persona.loginUser(self.nameUser.text, self.namePassword.text)
-        if self.login == False:
-            self.i = self.i+1
+    def check_userpassword(self):
+        # Se verifica si 
+        Flag_de_Error = True #Badera para caso de error 
+        try:
+            self.login = persona.loginUser(self.nameUser.text, self.namePassword.text)
+        except:
             self.Fallo_UC()
-        else:
-            persona.ActualUser(self.nameUser.text)
-            sm.current = "menupersona"
-        # Verifico si se acabaron los intentos.
-        if self.i >= 5:
-            self.i = 0
-            sm.current = "menu"
+            Flag_de_Error = False
+
+        # Si no hubo error se ejecutara 
+        if Flag_de_Error:
+            if self.login == False:
+                self.i = self.i+1
+                self.Fallo_UC()
+            else:
+                persona.ActualUser(self.nameUser.text)
+                sm.current = "menupersona"
+            # Verifico si se acabaron los intentos.
+            if self.i >= 5:
+                self.i = 0
+                sm.current = "menu"
         
     
     def Fallo_UC(self):
@@ -94,18 +103,31 @@ class LoginPersona(Screen):
 class CreateUserPersona(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
+    againPassword = ObjectProperty(None)
     
     def createUser(self):
-        newUser = persona.createUser(self.nameAccount.text,self.namePassword.text)
-        if newUser != -1:
-            persona.ActualUser(self.nameAccount.text)
-            self.nameAccount.text = ""
-            self.namePassword.text = ""
-            sm.current = "createaccountpersona"
+        if (self.nameAccount.text!="") and (self.namePassword.text!=""): # Reviso que los valores sen validos
+            val_cont = general.Revisar_Contrasena(self.namePassword.text) # Reviso que la contrasena sea de mas de 8 digitos
+            if val_cont>=8:
+                if self.namePassword.text == self.againPassword.text:
+                        newUser = persona.createUser(self.nameAccount.text,self.namePassword.text) # Reviso que el usuario no se haya creado y si no lo creo
+                        if newUser != -1:
+                            persona.ActualUser(self.nameAccount.text)
+                            self.nameAccount.text = ""
+                            self.namePassword.text = ""
+                            sm.current = "createaccountpersona"
+                        else:
+                            self.nameAccount.text = ""
+                            self.namePassword.text = ""
+                            self.againPassword.text = ""
+                            self.userNotValid()
+                    
+                else:
+                    self.no_coinciden()
+            else:
+                self.Error_longitud()
         else:
             self.userNotValid()
-            self.nameAccount.text = ""
-            self.namePassword.text = ""
             
     def userNotValid (self):
         content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
@@ -117,16 +139,30 @@ class CreateUserPersona(Screen):
         content.bind(on_release=pop.dismiss)
     
         pop.open()
-    
-    def Crearbank(self):
+
+    def no_coinciden (self):
         content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
-        pop = Popup(title='A continuacion crearemos su primer cuenta!',
-                content=content,
-                auto_dismiss=False,
-                size_hint=(None, None), size=(350, 200))
+        pop = Popup(title='Las contraseñas ingresadas no coinciden',
+            content=content,
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
 
         content.bind(on_release=pop.dismiss)
-        
+        self.nameAccount.text = ""
+        self.namePassword.text = ""
+        self.againPassword.text = ""
+        pop.open()
+    
+    def Error_longitud (self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='La contraseña debe ser igual o mayor a 8 digitos\nIngrese de nuevo',
+            content=content,
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_release=pop.dismiss)
+        self.namePassword.text = ""
+        self.againPassword.text = ""
         pop.open()
 
 
@@ -142,7 +178,8 @@ class CreateAccountPersona (Screen):
 # Pagina para registro de Ingresos
 
 class MenuPersona (Screen):
-    pass
+    def Cerrar_secion(self):
+        persona.Usuarioactual = ""
 
 class IngresosPersona(Screen):
     nameIngresos = ObjectProperty(None)
@@ -183,7 +220,6 @@ class LoginEmpresa(Screen):
     i = 0
     def check_userpassword(self):        
         self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
-        print(self.nameUser.text, self.namePassword.text)
         if self.login == False:
             self.i = self.i+1
             self.Fallo_UC()

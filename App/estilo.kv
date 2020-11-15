@@ -65,6 +65,7 @@
 <CreateUserPersona>:
     nameAccount:nameAccount
     namePassword:namePassword
+    againPassword:againPassword
     GridLayout:
         cols:1
         padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
@@ -89,12 +90,28 @@
                 id: namePassword
                 multiline: False
                 font_size: 20
+                password: True
+            
+            Label:
+                text: "Reingrese su contraseña:"
+                font_size: self.width*0.05
+                    
+            TextInput:
+                id: againPassword
+                multiline: False
+                font_size: 20
+                password: True
 
         Button:
             text: "Crear cuenta"
             pos_hint:{"root.x":0.5, "root.y": 0.5}
             size_hint:0.25, 0.2
             on_release: root.createUser()
+        Button:
+            text: "Volver"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+            on_release: app.root.current = "loginpersona"
 
             
 
@@ -274,11 +291,18 @@
                 size_hint:0.25, 0.2
                 on_release: app.root.current = "balancepersona"
             
-            # Button:
-            #     text: "Balance"
-            #     pos_hint:{"root.x":0.5, "root.y": 0.5}
-            #     size_hint:0.25, 0.2
-            #     on_release: app.root.current = "balancepersona"
+            Button:
+                text: "Registrar una cuenta nueva"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: app.root.current = "createaccountpersona"
+
+            Button:
+                text: "Cerrar seción"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_press: root.Cerrar_secion()
+                on_release: app.root.current = "loginpersona"
 
 
 
