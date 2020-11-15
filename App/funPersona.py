@@ -12,9 +12,11 @@ class Personal:
         self.Usuarioactual = str(user)
 
     def setupPersona(self):
-        check = os.path.isdir('./config')
-        if (check == False):
+        checkConfig = os.path.isdir('./config')
+        checkPersona = os.path.isdir('./config/Persona')
+        if (checkConfig == False):
             os.mkdir('config')
+        if (checkPersona == False):    
             os.mkdir('config/Persona')
 
     def createUser(self, user, password):
@@ -92,7 +94,8 @@ class Personal:
 
 
     def balance(self, cuentaBalance):
-        registro = self.path + self.Usuarioactual + '/' + cuentaBalance + '/registro.csv'
+        cuenta = str(cuentaBalance)
+        registro = self.path + self.Usuarioactual + '/' + cuenta + '/registro.csv'
         data = pd.read_csv(registro)
         
         total = data['Monto'].sum()

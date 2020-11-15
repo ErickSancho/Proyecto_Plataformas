@@ -64,9 +64,9 @@ class LoginPersona(Screen):
     i = 0
     def check_userpassword(self):
         # Se verifica si 
-        Flag_de_Error = True #Badera para caso de error 
+        Flag_de_Error = True #Bandera para caso de error 
         try:
-            self.login = persona.loginUser(self.nameUser.text, self.namePassword.text)
+            self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
         except:
             self.Fallo_UC()
             Flag_de_Error = False
@@ -172,6 +172,7 @@ class CreateAccountPersona (Screen):
     account = ObjectProperty(None)
     def createAccount(self):
         persona.crearCuenta(self.account.text)
+        self.account.text = ""
         sm.current="menupersona"
         
 
@@ -212,21 +213,33 @@ class BalancePersona(Screen):
 
 # Clase para la pantalla de ingreso a sistema personal.
 class LoginEmpresa(Screen):
-        #Aquí van los login de la persona
+        #Aquí van los login de la empresa
     nameUser = ObjectProperty(None)
     namePassword = ObjectProperty(None) 
-
+    
     login = False
     i = 0
-    def check_userpassword(self):        
-        self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
-        if self.login == False:
-            self.i = self.i+1
+    def check_userpassword(self):
+        # Se verifica si 
+        Flag_de_Error = True #Badera para caso de error 
+        try:
+            self.login = persona.loginUser(self.nameUser.text, self.namePassword.text)
+        except:
             self.Fallo_UC()
-        # Verifico que no cumple el limite.
-        if self.i >= 5:
-            self.i = 0
-            sm.current = "menu"
+            Flag_de_Error = False
+
+        # Si no hubo error se ejecutara 
+        if Flag_de_Error:
+            if self.login == False:
+                self.i = self.i+1
+                self.Fallo_UC()
+            else:
+                empresa.ActualUser(self.nameUser.text)
+                sm.current = "menuempresa"
+            # Verifico si se acabaron los intentos.
+            if self.i >= 5:
+                self.i = 0
+                sm.current = "menu"
         
     
     def Fallo_UC(self):
@@ -247,14 +260,50 @@ class LoginEmpresa(Screen):
 class CreateUserEmpresa(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
+    againPassword = ObjectProperty(None)
+    
     def createUser(self):
-        empresa.createUser(self.nameAccount.text,self.namePassword.text)
+        if (self.nameAccount.text!="") and (self.namePassword.text!=""): # Reviso que los valores sen validos
+            val_cont = general.Revisar_Contrasena(self.namePassword.text) # Reviso que la contrasena sea de mas de 8 digitos
+            if val_cont>=8:
+                if self.namePassword.text == self.againPassword.text:
+                        newUser = empresa.createUser(self.nameAccount.text,self.namePassword.text) # Reviso que el usuario no se haya creado y si no lo creo
+                        if newUser != -1:
+                            empresa.ActualUser(self.nameAccount.text)
+                            self.nameAccount.text = ""
+                            self.namePassword.text = ""
+                            sm.current = "createaccountempresa"
+                        else:
+                            self.nameAccount.text = ""
+                            self.namePassword.text = ""
+                            self.againPassword.text = ""
+                            self.userNotValid()
+                    
+                else:
+                    self.no_coinciden()
+            else:
+                self.Error_longitud()
+        else:
+            self.userNotValid()
+            
+    def userNotValid (self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='Ese usuario ya fue creado, o no es un nombre valido. Intente con otro nombre.',
+            content=content,
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_release=pop.dismiss)
+    
+        pop.open()
 
 #Pagina para crear cuentas bancarias
 class CreateAccountEmpresa(Screen):
     account = ObjectProperty(None)
     def createAccount(self):
         empresa.crearCuentaEmpresa(self.account.text)
+        self.account.text = ""
+        sm.current="menuempresa"
 
 # Pagina para registra de Ingresos
 class IngresosEmpresa(Screen):
@@ -263,14 +312,20 @@ class IngresosEmpresa(Screen):
     nameConcepto = ObjectProperty(None)
     def ingresos(self):
         empresa.ingresosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
-  
+        self.nameCuenta = ""
+        self.nameMonto = ""
+        self.nameConcepto = ""
+
 # Pagina para Ingreso de Gastos
 class GastosEmpresa(Screen):
-    nameCuenta = ObjectProperty(None)
-    nameMonto = ObjectProperty(None)
-    nameConcepto = ObjectProperty(None)
+    nameGastos = ObjectProperty(None)
+    montoGastos = ObjectProperty(None)
+    conceptoGastos = ObjectProperty (None)
     def gastos(self):
-        empresa.gastosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
+        empresa.gastosEmpresa(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
+        self.nameGastos.text = ""
+        self.montoGastos.text = ""
+        self.conceptoGastos.text = ""
 # Pagina para muestra de Balance
 class BalanceEmpresa(Screen):
     nameBalance = ObjectProperty(None)
@@ -280,7 +335,7 @@ class BalanceEmpresa(Screen):
 class ImpuestoEmpresa(Screen):
     nameEstado = ObjectProperty(None)
     def impuestos(self):
-        empresa.impuestosEmpresa(self.nameEstado.text)
+        empresa.taxesEmpresa(self.nameEstado.text)
 
 
 ############## Declaro manejador de ventanas ##############
