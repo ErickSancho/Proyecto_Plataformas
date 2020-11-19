@@ -32,7 +32,7 @@
             Label:
                 size:100,500
                 text:"Usuario: "
-                font_size: self.height*0.85
+                font_size: self.height*0.9
             
             TextInput:
                 id:usuario
@@ -43,7 +43,7 @@
             Label:
                 text:"Contraseña: "
                 size:100,500
-                font_size: self.height*0.85
+                font_size: self.height*0.9
             
             TextInput:
                 id:contrasena
@@ -171,7 +171,9 @@
             text: "Crear cuenta bancaria"
             pos_hint:{"root.x":0.5, "root.y": 0.5}
             size_hint:0.25, 0.2
-            on_release: root.createAccount()
+            on_release: 
+                root.createAccount()
+                root.manager.transition.direction = "left"
 
         Button:
             text: "Volver"
@@ -224,7 +226,8 @@
                 font_size: 20
         GridLayout:
             cols:2
-            padding: root.width*0.15, root.width*0.15, root.width*0.15, root.width*0.01
+            padding: root.width*0.1, root.width*0.1, root.width*0.1, root.width*0.1
+            spacing: self.width * 0.1
             Button:
                 text: "Volver"
                 pos_hint:{"root.x":0.5, "root.y": 0.5}
@@ -281,7 +284,8 @@
 
         GridLayout:
             cols:2
-            padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+            padding: root.width*0.1, root.width*0.1, root.width*0.1, root.width*0.1
+            spacing: self.width * 0.1
             Button:
                 text: "Volver"
                 pos_hint:{"root.x":0.5, "root.y": 0.5}
@@ -306,34 +310,42 @@
         padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
 
         GridLayout:
-            cols:2
-            padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+            cols:1
+            padding: 20
+            spacing: 10
 
             Label:
                 text: "Digite el nombre de la cuenta de la cual desea conocer el balance:"
-                font_size: self.width*0.05
-
-            TextInput:
-                id:nameBalance
-                multiline: False
-                font_size: 20
+                font_size: self.height*0.25
+            
+            GridLayout:
+                cols:1
+                padding: self.width*0.15, self.height*0.15, self.width*0.15, self.height*0.15
+                TextInput:
+                    halign: "center"
+                    id: nameBalance
+                    multiline: True
+                    font_size: (root.height+root.width) * 0.025
+            
             
         GridLayout:
             cols:2
-            padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+            padding: root.width*0.1, root.width*0.1, root.width*0.1, root.width*0.1
+            spacing: self.width * 0.1
 
             Button:
                 text: "Volver"
+                font_size:self.height*0.2
                 pos_hint:{"root.x":0.5, "root.y": 0.5}
-                size_hint:0.25, 0.2
                 on_release: 
                     app.root.current = "menupersona"
                     root.manager.transition.direction = "right"  
 
-            # Button:
-            #     text: "Ingresar"
-            #     pos_hint:{"root.x":0.5, "root.y": 0.5}
-            #     size_hint:0.25, 0.2
+            Button:
+                text: "Ingresar"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                background_color: 0 , 200/255.0 , 0 , 1
             #     on_release: 
             #         root.balance()
             #         root.manager.transition.direction = "left"
@@ -380,197 +392,397 @@
                 size_hint:0.25, 0.2
                 on_release: 
                     app.root.current = "createaccountpersona"
-                    root.manager.transition.direction = "right"
+                    root.manager.transition.direction = "left"
 
             Button:
                 text: "Cerrar sesión"
                 pos_hint:{"root.x":0.5, "root.y": 0.5}
                 size_hint:0.25, 0.2
-                on_press: root.Cerrar_secion()
-                on_release: 
-                    app.root.current = "loginpersona"
-                    root.manager.transition.direction = "right"
-
+                on_release: root.Seguro_cerrar()
+                    
 
 
 
 <LoginEmpresa>:
     nameUser: usuario
     namePassword: contrasena
+
     GridLayout:
         cols:1
-        size: root.width, root.height
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+
 
         GridLayout:
             cols:2
-
+            padding:self.height*0.25
+            spacing:self.height*0.25
             Label:
                 size:100,500
                 text:"Usuario: "
-                font_size:20
+                font_size: self.height*0.9
             
             TextInput:
                 id:usuario
                 multiline:False    
                 size:100,500
+                
             
             Label:
                 text:"Contraseña: "
                 size:100,500
-                font_size:20
+                font_size: self.height*0.9
             
             TextInput:
                 id:contrasena
                 multiline:False
                 size:100,500
-        Button:
-            text: "Submit"
-            pos_hint:{"root.x":0.5, "root.y": 0.5}
-            size_hint:0.25, 0.2
+                password: True
+
+        GridLayout:
+            cols:2
+            padding:self.height*0.25
+            spacing:self.height*0.25
+            
+            Button:
+                text: "Crear cuenta"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint: 0.2, 0.15
+                on_release: 
+                    app.root.current = "crearempresa"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: "Submit"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.2, 0.15
+                on_release: 
+                    root.check_userpassword()
+                    root.manager.transition.direction = "left"
+
 
 <CreateUserEmpresa>:
     nameAccount:nameAccount
     namePassword:namePassword
+    againPassword:againPassword
     GridLayout:
-        cols:2
-        size: root.width, root.height
-        
-        Label:
-            text: "Digite el nombre de usuario: "
-            font_size: self.width*0.05
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
 
-        TextInput:
-            id:nameAccount
-            multiline: False
-            font_size: root.width + root.height
+        GridLayout:
+            cols:2
+            size: root.width, root.height
+            padding:self.height*0.045
+            spacing:self.height*0.25
+            Label:
+                text: "Digite el nombre de usuario: "
+                font_size: self.height*0.65
+            
+            TextInput:
+                id: nameAccount
+                multiline: False
+                font_size: 20
 
-        Label:
-            text: "Digite su contraseña:"
-            font_size: self.width*0.05
+            Label:
+                text: "Digite la contraseña:"
+                font_size: self.height*0.65
+                    
+            TextInput:
+                id: namePassword
+                multiline: False
+                font_size: 20
+                password: True
+            
+            Label:
+                text: "Reingrese su contraseña:"
+                font_size: self.height*0.65
+                    
+            TextInput:
+                id: againPassword
+                multiline: False
+                font_size: 20
+                password: True
+        GridLayout:
+            cols:2
+            padding:self.height*0.25
+            spacing:self.height*0.25
+            Button:
+                text: "Crear cuenta"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: root.createUser()
+            Button:
+                text: "Volver"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "loginempresa"
+                    root.manager.transition.direction = "right"
 
-        TextInput:
-            id:namePassword
-            multiline: False
-            font_size: root.width + root.height
 
 
 <CreateAccountEmpresa>:
-    account:nameAccount
+    account: account
+    
     GridLayout:
-        cols:2
-        size: root.width, root.height
-        
-        Label:
-            text: "Digite el nombre de la cuenta bancaria a ingresar: "
-            font_size: self.width*0.05
+        cols:1
+        padding: root.width*0.15, root.height*0.05, root.width*0.15, root.height*0.05
+        GridLayout:
+            cols:1
+            padding: root.width*0.05, root.height*0.25, root.width*0.05, root.height*0.25
+            spacing: self.width*0.01, self.height*0.01
 
-        TextInput:
-            id:nameAccount
-            multiline: False
-            font_size: root.width + root.height
+            
+                
+            GridLayout:
+                cols:1
+                # padding: self.width*0.05, self.height*0.01, self.width*0.05, self.height*0.01
+                Label:
+                    text: "Digite el nombre de la cuenta bancaria a crear:"
+                    font_size: self.width*0.055
+                
+            GridLayout:
+                cols:1
+                # padding: self.width*0.05, self.height*0.05, self.width*0.25, self.height*0.05
+                TextInput:
+                    halign: "center"
+                    id: account
+                    multiline: True
+                    font_size: (root.height+root.width) * 0.015
+                    
+        
+        Button:
+            text: "Crear cuenta bancaria"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+            on_release: 
+                root.createAccount()
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Volver"
+            pos_hint:{"root.x":0.5, "root.y": 0.5}
+            size_hint:0.25, 0.2
+            on_release:
+                app.root.current = "menuempresa"
+                root.manager.transition.direction = "right"
+
 
 <IngresosEmpresa>:
-    nameCuenta:nameCuenta
-    nameMonto:nameMonto
-    nameConcepto:nameConcepto
-
+    nameIngresos:nameIngresos
+    montoIngresos:montoIngresos
+    conceptoIngresos:conceptoIngresos
     GridLayout:
-        cols:2
-        size: root.width, root.height
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+        GridLayout:
+            cols:2
+            size: root.width, root.height
 
-        
-        Label:
-            text: "Digite el nombre de la cuenta a ingresar: "
-            font_size: self.width*0.05
-        
-        TextInput:
-            id: nameCuenta
-            multiline: False
-            font_size: 20
-        
-        
-        Label:
-            text: "Digite el monto del ingreso: "
-            font_size: self.width*0.05
-        
-        TextInput:
-            id: nameMonto
-            multiline: False
-            font_size: 20
-        
+            
+            Label:
+                text: "Digite el nombre de la cuenta a ingresar: "
+                font_size: self.width*0.04
+            
+            TextInput:
+                id: nameIngresos
+                multiline: False
+                font_size: 20
+            
+            
+            Label:
+                text: "Digite el monto del ingreso: "
+                font_size: self.width*0.05
+            
+            TextInput:
+                id: montoIngresos
+                multiline: False
+                font_size: 20
+            
 
-        Label:
-            text: "Digite el concepto del ingreso: "
-            font_size: self.width*0.05
+            Label:
+                text: "Digite el concepto del ingreso: "
+                font_size: self.width*0.05
 
-        TextInput:
-            id: nameConcepto
-            multiline: False
-            font_size: 20
+            TextInput:
+                id: conceptoIngresos
+                multiline: False
+                font_size: 20
+        GridLayout:
+            cols:2
+            padding: root.width*0.1, root.width*0.1, root.width*0.1, root.width*0.1
+            spacing: self.width * 0.1
+            Button:
+                text: "Volver"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "menuempresa"  
+                    root.manager.transition.direction = "right"
+
+            Button:
+                text: "Ingresar"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    root.ingresos()
+                    root.manager.transition.direction = "left"
+            
 
 <GastosEmpresa>:
-    nameCuenta:nameCuenta
-    nameMonto:nameMonto
-    nameConcepto:nameConcepto
-
+    nameGastos:nameGastos
+    montoGastos:montoGastos
+    conceptoGastos:conceptoGastos
     GridLayout:
-        cols:2
-        size: root.width, root.height
-    
-        Label:
-            text: "Digite el nombre de la cuenta a indicar el gasto: "
-            font_size: self.width*0.05
-        TextInput:
-            id: nameCuenta
-            multiline: False
-            font_size: (root.width**2 + root.height**2) / 14**4
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
+        GridLayout:
+            cols:2
+            size: root.width, root.height
+        
+            Label:
+                text: "Digite el nombre de la cuenta: "
+                font_size: self.width*0.05
+            TextInput:
+                id: nameGastos
+                multiline: False
+                font_size: 20
 
-        Label:
-            text: "Digite el monto del gasto: "
-            font_size: self.width*0.05
+            Label:
+                text: "Digite el monto del gasto: "
+                font_size: self.width*0.05
 
-        TextInput:
-            id: nameMonto
-            multiline: False
-            font_size: (root.width**2 + root.height**2) / 14**4
+            TextInput:
+                id: montoGastos
+                multiline: False
+                font_size: 20
 
-        Label:
-            text: "Digite el concepto del gasto: "
-            font_size: self.width*0.05
+            Label:
+                text: "Digite el concepto del gasto: "
+                font_size: self.width*0.05
 
-        TextInput:
-            id: nameConcepto
-            multiline: False
-            font_size: root.width + root.height
+            TextInput:
+                id: conceptoGastos
+                multiline: False
+                font_size: 20
+
+        GridLayout:
+            cols:2
+            padding: root.width*0.1, root.width*0.1, root.width*0.1, root.width*0.1
+            spacing: self.width * 0.1
+            Button:
+                text: "Volver"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "menuempresa"
+                    root.manager.transition.direction = "right"  
+
+            Button:
+                text: "Ingresar"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    root.gastos()
+                    root.manager.transition.direction = "left"
 
 <BalanceEmpresa>:
     nameBalance: nameBalance
 
     GridLayout:
-        cols:2
-        size: root.width, root.height
+        cols:1
+        padding: root.width*0.05, root.width*0.05, root.width*0.05, root.width*0.05
 
-        Label:
-            text: "Digite el nombre de la cuenta de la cual desea conocer el balance:"
-            font_size: self.width*0.05
+        GridLayout:
+            cols:1
+            padding: 20
+            spacing: 10
 
-        TextInput:
-            id:nameBalance
-            multiline: False
-            font_size: root.width + root.height
+            Label:
+                text: "Digite el nombre de la cuenta de la cual desea conocer el balance:"
+                font_size: self.height*0.25
+            
+            GridLayout:
+                cols:1
+                padding: self.width*0.15, self.height*0.15, self.width*0.15, self.height*0.15
+                TextInput:
+                    halign: "center"
+                    id: nameBalance
+                    multiline: True
+                    font_size: (root.height+root.width) * 0.025
+            
+            
+        GridLayout:
+            cols:2
+            padding: root.width*0.1, root.width*0.1, root.width*0.1, root.width*0.1
+            spacing: self.width * 0.1
 
-<ImpuestoEmpresa>:
-    nameEstado:nameEstado
+            Button:
+                text: "Volver"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                on_release: 
+                    app.root.current = "menuempresa"
+                    root.manager.transition.direction = "right"  
 
+            Button:
+                text: "Ingresar"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                background_color: 0 , 200/255.0 , 0 , 1
+            #     on_release: 
+            #         root.balance()
+            #         root.manager.transition.direction = "left"
+            
+
+
+<MenuEmpresa>:
     GridLayout:
-        cols:2
+        cols:1
         size: root.width, root.height
 
-        Label:
-            text: "Indique si su empresa se encuentra en trámite de inscripción ante Registro de personas jurídicas(s/n): "
-            font_size: self.width*0.05
+        GridLayout:
+            cols:1
+            padding: root.width*0.25, root.width*0.15, root.width*0.25, root.width*0.15
+            spacing: self.height*0.01
+            
+            Button:
+                text: "Agregar Ingresos"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "ingresosempresa"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: "Agregar Gastos"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "gastosempresa"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: "Balance"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "balanceempresa"
+                    root.manager.transition.direction = "left"
+            
+            Button:
+                text: "Registrar una cuenta nueva"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "createaccountempresa"
+                    root.manager.transition.direction = "left"
 
-        TextInput:
-            id:nameEstado
-            multiline: False
-            font_size: root.width + root.height
+            Button:
+                text: "Cerrar sesión"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: root.Seguro_cerrar()

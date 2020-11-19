@@ -22,19 +22,19 @@ class Empresa:
 
     def createUser(self, user, password):
         usr = str (user)
-        pswrd = str (password)
+        pswrd = crypt.crypt(str (password), 'salt')
         checkFolder = os.path.isdir('./config/Empresa/' + usr)
-        checkFile = os.path.isfile('./config/userData.csv')
+        checkFile = os.path.isfile('./config/Empresa/userData.csv')
         self.ActualUser(usr)
         if checkFolder == False and checkFile == True:
             os.mkdir('./config/Empresa/' + usr)
-            with open(os.path.join('./config/userData.csv'), "a") as f:
+            with open(os.path.join('./config/Empresa/userData.csv'), "a") as f:
                     writer = csv.writer(f)
                     writer.writerow([usr,pswrd])
 
         elif checkFile == False and checkFolder == False:
             os.mkdir('./config/Empresa/' + usr)
-            with open(os.path.join('./config/userData.csv'), "w") as f:
+            with open(os.path.join('./config/Empresa/userData.csv'), "w") as f:
                     writer = csv.writer(f)
                     writer.writerow(["User","Password"])
                     writer.writerow([usr,pswrd])
@@ -53,8 +53,8 @@ class Empresa:
     
     def loginUser(self, textUser, textPassword):
         usr = str(textUser)
-        pswrd = str(textPassword)
-        user = pd.read_csv('./config/userData.csv')
+        pswrd = crypt.crypt(str (textPassword), 'salt')
+        user = pd.read_csv('./config/Empresa/userData.csv')
 
         numerocuentas = len(user)
         Flag = False
