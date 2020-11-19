@@ -8,12 +8,18 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
+from kivy.core.window import Window
 #from kivy.uix.floatlayout import FloatLayout
 
 # funciones para calculos 
 import funPersona
 import funEmpresa
 import Funcs
+
+
+# Defino el color de la pantalla
+Window.clearcolor = (52/255.0, 97/255.0, 180/255.0, 1)
+
 
 ######################## Definicion de clases ############################
 
@@ -78,6 +84,8 @@ class LoginPersona(Screen):
                 self.Fallo_UC()
             else:
                 persona.ActualUser(self.nameUser.text)
+                self.nameUser.text = ""
+                self.namePassword.text = "" 
                 sm.current = "menupersona"
             # Verifico si se acabaron los intentos.
             if self.i >= 5:
@@ -187,10 +195,27 @@ class IngresosPersona(Screen):
     montoIngresos = ObjectProperty(None)
     conceptoIngresos = ObjectProperty(None)
     def ingresos(self):
-        persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
+        try:
+            persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
+            self.nameIngresos.text = ""
+            self.montoIngresos.text = ""
+            self.conceptoIngresos.text = ""
+        except:
+            self.Datos_invalidos()
+
+
+    def Datos_invalidos (self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='Valores ingresados no son validos',
+            content=content,
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_release=pop.dismiss)
         self.nameIngresos.text = ""
         self.montoIngresos.text = ""
         self.conceptoIngresos.text = ""
+        pop.open()     
 
   
 # Pagina para Ingreso de Gastos
@@ -346,9 +371,11 @@ class WindowManager(ScreenManager):
 ###################### Defino funciones necesarias ######################
 def ir_login_persona(*args):
     sm.current = "loginpersona"
+    sm.transition.direction = "left"
 
 def ir_login_empresa(*args):
     sm.current = "loginempresa"
+    sm.transition.direction = "left"
 
 
 ###################### Fin de funciones necesarias ######################
@@ -375,7 +402,7 @@ for ventana in ventanasEmpresa:     #Ventanas para Empresa
     sm.add_widget(ventana)
 
 # Defino la pantalla inicial
-sm.current = "menu"
+sm.current = "menupersona"
 
 # El incializador o  constructor
 class ControlFinancieroApp(App):
