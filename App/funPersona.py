@@ -3,6 +3,8 @@ import csv
 from datetime import date
 import pandas as pd
 import crypt
+import matplotlib.pyplot as plt
+import numpy as np
 
 class Personal:
 
@@ -96,12 +98,29 @@ class Personal:
     def balance(self, cuentaBalance):
         cuenta = str(cuentaBalance)
         registro = self.path + self.Usuarioactual + '/' + cuenta + '/registro.csv'
+        balancePath = self.path + self.Usuarioactual + '/' + cuenta + '/'
         data = pd.read_csv(registro)
         
         total = data['Monto'].sum()
         print(total)
         fecha = date.today().strftime("%d/%m/%Y")
         
-        with open(os.path.join(registro, 'balance.csv'), "a") as f:
+        with open(os.path.join(balancePath, 'balance.csv'), "a") as f:
             writer = csv.writer(f)
             writer.writerow([total,fecha])
+
+        
+    def PlotFigures (self,cuentaPlot):
+        cuenta = str(cuentaPlot) + '/'
+        balancePath = self.path + self.Usuarioactual + '/' + cuenta + '/balance.csv' 
+        #registroPath = self.path + self.Usuarioactual + 'registro.csv' 
+
+        balance = pd.read_csv(balancePath)
+        #registro = pd.read_csv(registroPath)
+
+        plt.figure(figsize=(8,5))
+        plt.plot(balance.Fecha,balance.Monto)
+        plt.title('Balance de la cuenta')
+        plt.ylabel('Monto')
+        plt.xlabel('Fecha')
+        plt.show()

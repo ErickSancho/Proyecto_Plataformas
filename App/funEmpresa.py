@@ -2,6 +2,11 @@ import os
 import csv
 from datetime import date
 import pandas as pd
+<<<<<<< HEAD
+=======
+import matplotlib.pyplot as plt
+import numpy as np
+>>>>>>> 8d0c22c4144021212eac584da7011f3b4acb6996
 import crypt
 
 class Empresa:
@@ -167,3 +172,18 @@ class Empresa:
             writer.writerow(['Monto','Impuesto'])
             writer.writerow([impuestoSobreEntJur,'Impuesto sobre entidades jurídicas'])
             writer.writerow([impuestoSobreRenta,'Impuesto sobre la renta'])
+
+    def PlotFigures (self,cuentaPlot):
+        cuenta = str(cuentaPlot) + '/'
+        balancePath = self.path + self.Usuarioactual + '/' + cuenta + '/balance.csv' 
+        #registroPath = self.path + self.Usuarioactual + 'registro.csv' 
+
+        balance = pd.read_csv(balancePath)
+        #registro = pd.read_csv(registroPath)
+
+        plt.figure(figsize=(8,5))
+        plt.plot(balance.Fecha,balance.Monto)
+        plt.title('Balance de la cuenta')
+        plt.ylabel('Monto')
+        plt.xlabel('Fecha')
+        plt.show()
