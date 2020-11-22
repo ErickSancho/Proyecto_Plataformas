@@ -131,8 +131,11 @@ class CreateUserPersona(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
 <<<<<<< HEAD
+<<<<<<< HEAD
     # persona.createUser(self.nameAccount.text,self.namePassword.text)
 =======
+=======
+>>>>>>> master
     againPassword = ObjectProperty(None)
     
     def createUser(self):
@@ -202,6 +205,9 @@ class CreateUserPersona(Screen):
         self.againPassword.text = ""
         pop.open()
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 
 
@@ -209,8 +215,11 @@ class CreateUserPersona(Screen):
 class CreateAccountPersona (Screen):
     account = ObjectProperty(None)
 <<<<<<< HEAD
+<<<<<<< HEAD
     # persona.crearCuenta(self.account.text)
 =======
+=======
+>>>>>>> master
     def createAccount(self):
         try:
             persona.crearCuenta(self.account.text)
@@ -232,6 +241,9 @@ class CreateAccountPersona (Screen):
         self.account.text = ""
         pop.open()
         
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 
 # Pagina para registro de Ingresos
@@ -261,8 +273,11 @@ class IngresosPersona(Screen):
     montoIngresos = ObjectProperty(None)
     conceptoIngresos = ObjectProperty(None)
 <<<<<<< HEAD
+<<<<<<< HEAD
     # persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
 =======
+=======
+>>>>>>> master
     def ingresos(self):
         try:
             persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
@@ -288,6 +303,9 @@ class IngresosPersona(Screen):
         self.conceptoIngresos.text = ""
         pop.open()     
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
   
 # Pagina para Ingreso de Gastos
@@ -296,12 +314,15 @@ class GastosPersona(Screen):
     montoGastos = ObjectProperty(None)
     conceptoGastos = ObjectProperty (None)
 <<<<<<< HEAD
+<<<<<<< HEAD
     # persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
 # Pagina para muestra de Balance
 class BalancePersona(Screen):
     nameBalance = ObjectProperty(None)
     # persona.balance(self.nameBalance.text)
 =======
+=======
+>>>>>>> master
     def gastos(self):
         persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
         self.nameGastos.text = ""
@@ -312,6 +333,9 @@ class BalancePersona(Screen):
     nameBalance = ObjectProperty(None)
     def balance(self):
         persona.balance(self.nameBalance.text)
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 
 ######################### Defino las clases de pantallas para empresas #########################
@@ -325,18 +349,24 @@ class LoginEmpresa(Screen):
     login = False
     i = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     def check_userpassword(self):        
         # self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
         print(self.nameUser.text, self.namePassword.text)
         if self.login == False:
             self.i = self.i+1
 =======
+=======
+>>>>>>> master
     def check_userpassword(self):
         # Se verifica si 
         Flag_de_Error = True #Bandera para caso de error 
         try:
             self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
         except:
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
             self.Fallo_UC()
             Flag_de_Error = False
@@ -378,8 +408,11 @@ class CreateUserEmpresa(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
 <<<<<<< HEAD
+<<<<<<< HEAD
     # empresa.createUser(self.nameAccount.text,self.namePassword.text)
 =======
+=======
+>>>>>>> master
     againPassword = ObjectProperty(None)
     
     def createUser(self):
@@ -447,6 +480,9 @@ class CreateUserEmpresa(Screen):
         self.namePassword.text = ""
         self.againPassword.text = ""
         pop.open()
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 
 
@@ -455,8 +491,11 @@ class CreateUserEmpresa(Screen):
 class CreateAccountEmpresa (Screen):
     account = ObjectProperty(None)
 <<<<<<< HEAD
+<<<<<<< HEAD
     # empresa.crearCuentaEmpresa(self.account.text)
 =======
+=======
+>>>>>>> master
     def createAccount(self):
         try:
             empresa.crearCuentaEmpresa(self.account.text)
@@ -500,6 +539,7 @@ class MenuEmpresa (Screen):
         boton2.bind(on_release = pop.dismiss)
         pop.open() 
     
+<<<<<<< HEAD
 >>>>>>> master
 
 class IngresosEmpresa(Screen):
@@ -574,6 +614,59 @@ class ImpuestoEmpresa(Screen):
     def impuestos(self):
         empresa.taxesEmpresa(self.nameEstado.text)
 >>>>>>> master
+=======
+
+class IngresosEmpresa(Screen):
+    nameIngresos = ObjectProperty(None)
+    montoIngresos = ObjectProperty(None)
+    conceptoIngresos = ObjectProperty(None)
+    def ingresos(self):
+        try:
+            empresa.ingresosEmpresa(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
+            self.nameIngresos.text = ""
+            self.montoIngresos.text = ""
+            self.conceptoIngresos.text = ""
+        except:
+            self.Datos_invalidos()
+
+
+    def Datos_invalidos (self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='Valores ingresados no son válidos',
+            content=content,
+            title_align = 'center',
+            title_size = '20',
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_release=pop.dismiss)
+        self.nameIngresos.text = ""
+        self.montoIngresos.text = ""
+        self.conceptoIngresos.text = ""
+        pop.open()     
+
+  
+# Pagina para Ingreso de Gastos
+class GastosEmpresa(Screen):
+    nameGastos = ObjectProperty(None)
+    montoGastos = ObjectProperty(None)
+    conceptoGastos = ObjectProperty (None)
+    def gastos(self):
+        empresa.gastosEmpresa(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
+        self.nameGastos.text = ""
+        self.montoGastos.text = ""
+        self.conceptoGastos.text = ""
+# Pagina para muestra de Balance
+class BalanceEmpresa(Screen):
+    nameBalance = ObjectProperty(None)
+    def balance(self):
+        empresa.balanceEmpresa(self.nameBalance.text)
+
+class ImpuestoEmpresa(Screen):
+    nameEstado = ObjectProperty(None)
+    def impuestos(self):
+        empresa.taxesEmpresa(self.nameEstado.text)
+>>>>>>> master
 
 
 ############## Declaro manejador de ventanas ##############
@@ -586,7 +679,10 @@ def ir_login_persona(*args):
     sm.current = "loginpersona"
     sm.transition.direction = "left"
     persona.Usuarioactual = ""
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 def ir_login_empresa(*args):
     sm.current = "loginempresa"
