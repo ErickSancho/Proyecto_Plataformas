@@ -2,48 +2,77 @@ import os
 import csv
 from datetime import date
 import pandas as pd
-#definir el login y setup de la empresa (creo que pueden ser iguales)
-class Empresa:
-    #la función de setup se puede correr después de que se cree el usuario, no lleva ningún parámetro
-    def setupEmpresa(self):
-        check = os.path.isdir('config')
-        if (check == False):
-            os.mkdir('config')
+import crypt
 
-        impuestos = os.path.isfile('./config/impuestos.csv')
-        if (impuestos == False):
-            with open(os.path.join('./config/', 'impuestos.csv'), "w") as f:
-                writer = csv.writer(f)
-                writer.writerow(['Monto','Impuesto'])
+class Empresa:
+    
+    #definición de variables requeridas
+    Usuarioactual = ""
+    path = "./config/Empresa/"
+    
+    def ActualUser (self, user):
+        self.Usuarioactual = str (user)
+    
+    def setupEmpresa(self):
+        checkConfig = os.path.isdir('./config')
+        checkEmpresa = os.path.isdir ('./config/Empresa')
+        if (checkConfig == False):
+            os.mkdir('config')
+        if (checkEmpresa == False):
+            os.mkdir('./config/Empresa')
+
+    def createUser(self, user, password):
+        usr = str (user)
+        pswrd = crypt.crypt(str (password), 'salt')
+        checkFolder = os.path.isdir('./config/Empresa/' + usr)
+        checkFile = os.path.isfile('./config/Empresa/userData.csv')
+        self.ActualUser(usr)
+        if checkFolder == False and checkFile == True:
+            os.mkdir('./config/Empresa/' + usr)
+            with open(os.path.join('./config/Empresa/userData.csv'), "a") as f:
+                    writer = csv.writer(f)
+                    writer.writerow([usr,pswrd])
+
+        elif checkFile == False and checkFolder == False:
+            os.mkdir('./config/Empresa/' + usr)
+            with open(os.path.join('./config/Empresa/userData.csv'), "w") as f:
+                    writer = csv.writer(f)
+                    writer.writerow(["User","Password"])
+                    writer.writerow([usr,pswrd])
+
+        elif checkFolder == True:
+            return -1
+
+        path = './config/Empresa/' + usr + '/'
             
-        cuentaLista = os.path.isfile('./config/cuentas.csv')
+        cuentaLista = os.path.isfile(path + 'cuentas.csv')
         if (cuentaLista == False):
-            with open(os.path.join('./config/', 'cuentas.csv'), "w") as f:
+            with open(os.path.join(path, 'cuentas.csv'), "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(['Cuenta'])
 
-    def createUser(self, user, password):
-      usr = str (user)
-      pswrd = str (password)
-      with open(os.path.join('./config/','userData.csv'), "w") as f:
-            writer = csv.writer(f)
-            writer.writerow([usr,pswrd])
     
     def loginUser(self, textUser, textPassword):
-      usr = str(textUser)
-      pswrd = str(textPassword)
-      user = pd.read_csv('./config/userData.csv')
-      if user[0][0] == usr and user[0][1] == pswrd:
-        return True
-      else:
-        return False
+        usr = str(textUser)
+        pswrd = crypt.crypt(str (textPassword), 'salt')
+        user = pd.read_csv('./config/Empresa/userData.csv')
+
+        numerocuentas = len(user)
+        Flag = False
+        for i in range(0,numerocuentas):
+            if str(user["User"][i]) == usr and str(user["Password"][i]) == pswrd:
+                Flag = True
+                self.ActualUser(usr)
+
+        return Flag
     
     def crearCuentaEmpresa(self, TexInput):
-        cuenta = input("Digite el nombre de la cuenta a crear (recuerde que este debe ser ilustrativo para saber a qué hace alusión: \n")
-        path = './config/'+ cuenta
+        cuenta = str(TexInput)
+        path = self.path + self.Usuarioactual + '/' + cuenta
         os.mkdir(path)
-
+        pathLista = self.path + self.Usuarioactual + '/'
         csvPath = path + '/'
+        
         with open(os.path.join(csvPath, 'registro.csv'), "w") as f:
             writer = csv.writer(f)
             writer.writerow(['Monto','Fecha','Concepto'])
@@ -52,13 +81,13 @@ class Empresa:
             writer = csv.writer(f)
             writer.writerow(['Monto','Fecha',])
         
-        with open(os.path.join('./config', 'cuentas.csv'), "a") as f:
+        with open(os.path.join(pathLista, 'cuentas.csv'), "a") as f:
             writer = csv.writer(f)
             writer.writerow([cuenta])
 
     def ingresosEmpresa(self, textCuenta, textMonto, textConcepto): 
         cuenta = str(textCuenta)
-        path = './config/' + cuenta
+        path = self.path + self.Usuarioactual + '/' + cuenta + '/'
         ingreso = float(textMonto)
         fecha = date.today().strftime("%d/%m/%Y")
         nota = str(textConcepto)
@@ -69,7 +98,7 @@ class Empresa:
 
     def gastosEmpresa(self, textCuenta, textMonto, textConcepto):
         cuenta = str(textCuenta)
-        path = './config/' + cuenta
+        path = self.path + self.Usuarioactual + '/' + cuenta + '/'
         gasto = float(textMonto)*(-1)
         fecha = date.today().strftime("%d/%m/%Y")
         nota = str(textConcepto)
@@ -80,7 +109,7 @@ class Empresa:
 
     def balanceEmpresa(self, textCuenta):
         cuenta = str(textCuenta)
-        path = './config/' + cuenta +'/'
+        path = self.path + self.Usuarioactual + '/' + cuenta + '/'
         registro = path + 'registro.csv'
         data = pd.read_csv(registro)
         
@@ -92,26 +121,24 @@ class Empresa:
             writer = csv.writer(f)
             writer.writerow([total,fecha])
 
-        prueabPath = path + 'balance.csv'
-        prueba = pd.read_csv(prueabPath)
-        print (prueba)
-
-    def impuestosEmpresa(self,textEstado):
+    def taxesEmpresa(self, textEstado):
         estadoEntidadJuridica = str(textEstado)
         valorNeto = 0
         folders = 0
         impuestoSobreEntJur = 0
         impuestoSobreRenta = 0
 
-        with open(os.path.join('./config','cuentas.csv')) as csvfile:
+
+        pathLista = self.path + self.Usuarioactual + '/'
+        with open(os.path.join(pathLista,'cuentas.csv')) as csvfile:
             folderList = list(csv.reader(csvfile))
 
-        for _, dirnames, _ in os.walk('./config/'):
+        for _, dirnames, _ in os.walk(pathLista):
             folders += len(dirnames)
         
         i=1
         while (i<=folders):
-            path = './config/' + folderList[i][0] +'/'
+            path = self.path + self.Usuarioactual + '/' + folderList[i][0] +'/'
             with open(os.path.join(path,'balance.csv')) as csvfile:
                 num = list(csv.reader(csvfile))
             position = len(num)-1
@@ -134,12 +161,24 @@ class Empresa:
         else:
             impuestoSobreRenta = valorNeto*0.20
         
-        with open(os.path.join('./config/', 'impuesto.csv'), "w") as f:
+        pathAppend = self.path + self.Usuarioactual + '/'
+        with open(os.path.join(pathAppend, 'impuesto.csv'), "w") as f:
             writer = csv.writer(f)
             writer.writerow(['Monto','Impuesto'])
             writer.writerow([impuestoSobreEntJur,'Impuesto sobre entidades jurídicas'])
             writer.writerow([impuestoSobreRenta,'Impuesto sobre la renta'])
 
+    def PlotFigures (self,cuentaPlot):
+        cuenta = str(cuentaPlot) + '/'
+        balancePath = self.path + self.Usuarioactual + '/' + cuenta + '/balance.csv' 
+        #registroPath = self.path + self.Usuarioactual + 'registro.csv' 
 
+        balance = pd.read_csv(balancePath)
+        #registro = pd.read_csv(registroPath)
 
-    
+        plt.figure(figsize=(8,5))
+        plt.plot(balance.Fecha,balance.Monto)
+        plt.title('Balance de la cuenta')
+        plt.ylabel('Monto')
+        plt.xlabel('Fecha')
+        plt.show()
