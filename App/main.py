@@ -561,7 +561,7 @@ for ventana in ventanasEmpresa:     #Ventanas para Empresa
     sm.add_widget(ventana)
 
 # Defino la pantalla inicial
-sm.current = "menu"
+sm.current = "ingresosempresa"
 
 # El incializador o  constructor
 class ControlFinancieroApp(App):

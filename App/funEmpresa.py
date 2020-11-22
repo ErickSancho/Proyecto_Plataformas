@@ -2,6 +2,7 @@ import os
 import csv
 from datetime import date
 import pandas as pd
+import crypt
 
 class Empresa:
     
