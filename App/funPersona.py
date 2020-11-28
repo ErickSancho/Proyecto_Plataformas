@@ -123,4 +123,5 @@ class Personal:
         plt.title('Balance de la cuenta')
         plt.ylabel('Monto')
         plt.xlabel('Fecha')
+        plt.grid()
         plt.show()
