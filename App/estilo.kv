@@ -5,20 +5,34 @@
             size_hint:0.25, 0.2
             text: "Persona"
             font_size: 20
-            on_release:
+            on_release: 
                 root.EntraPersona()
+                app.root.current = "loginpersona"
+                root.manager.transition.direction = "left"
         
         Button:
             pos_hint:{"x":0.5, "center_y": 0.5}
             size_hint:0.25, 0.2
             text: "Empresa"
             font_size: 20
-            on_release:
-                root.EntraEmpresa()
+            on_release: 
+                root.EntraEmpresa
+                app.root.current = "loginempresa"
+                root.manager.transition.direction = "left"
 
 <LoginPersona>:
     nameUser: usuario
     namePassword: contrasena
+
+    Button:
+        text: "Volver"
+        font_size:self.height*0.2
+        pos_hint:{"x":0, "y": 0.9}
+        # pos: root.width*0.5, root.height*0.5
+        size_hint: 0.15, 0.1
+        on_release: 
+            app.root.current = "menu"
+            root.manager.transition.direction = "right"
 
     GridLayout:
         cols:1
@@ -73,15 +87,6 @@
                 on_release: 
                     root.check_userpassword()
                     root.manager.transition.direction = "left"
-<<<<<<< HEAD
-
-        Button:
-            text: "Crear Usuario"
-            pos_hint:{"root.x":0.5, "root.y": 0.5}
-            size_hint:0.25, 0.2
-            on_release: app.root.current = "crearpersona"
-=======
->>>>>>> master
 
 
 <CreateUserPersona>:
@@ -355,9 +360,9 @@
                 font_size:self.height*0.2
                 pos_hint:{"root.x":0.5, "root.y": 0.5}
                 background_color: 0 , 200/255.0 , 0 , 1
-            #     on_release: 
-            #         root.balance()
-            #         root.manager.transition.direction = "left"
+                on_release: 
+                    root.balance()
+                    root.manager.transition.direction = "left"
             
 
 
@@ -415,6 +420,15 @@
 <LoginEmpresa>:
     nameUser: usuario
     namePassword: contrasena
+
+    Button:
+        text: "Volver"
+        font_size:self.height*0.2
+        pos_hint:{"x":0, "y": 0.9}
+        size_hint: 0.15, 0.1
+        on_release: 
+            app.root.current = "menu"
+            root.manager.transition.direction = "right"
 
     GridLayout:
         cols:1
@@ -746,9 +760,9 @@
                 font_size:self.height*0.2
                 pos_hint:{"root.x":0.5, "root.y": 0.5}
                 background_color: 0 , 200/255.0 , 0 , 1
-            #     on_release: 
-            #         root.balance()
-            #         root.manager.transition.direction = "left"
+                on_release: 
+                    root.balance()
+                    root.manager.transition.direction = "left"
             
 
 
@@ -793,9 +807,88 @@
                 on_release: 
                     app.root.current = "createaccountempresa"
                     root.manager.transition.direction = "left"
+            
+            Button:
+                text: "Calcular impuestos"
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                size_hint:0.25, 0.2
+                on_release: 
+                    app.root.current = "impuestoempresa"
+                    root.manager.transition.direction = "left"
 
             Button:
                 text: "Cerrar sesión"
                 pos_hint:{"root.x":0.5, "root.y": 0.5}
                 size_hint:0.25, 0.2
                 on_release: root.Seguro_cerrar()
+
+
+<ImpuestoEmpresa>:
+    impuesto_ent_jur:impuesto_ent_jur
+    impuesto_renta:impuesto_renta
+
+    GridLayout:
+        cols:1
+        padding: root.width*0.15, root.width*0.05, root.width*0.15, root.width*0.05
+    
+
+        GridLayout:
+            cols:2
+            padding: 10
+            spacing: 20
+            # canvas.before:
+            #     Color:
+            #         rgb: 160/255,156/255,154/255,1
+            #     Rectangle:
+            #         pos:root.width*0.05, root.height*0.45
+            #         size:root.width*0.9, root.height*0.5
+
+            # canvas.before:
+            #     Color:
+            #         rgb: 160/255,156/255,154/255,1
+            #     Rectangle:
+            #         pos:root.width*0, root.height*0
+            #         size:root.width, root.height
+
+
+            Label:
+                text: "Impuesto sobre la Entidad Juridica:"
+                font_size: self.height*0.2
+                # color: 0,0,0,1
+            
+            Label:
+                id: impuesto_ent_jur
+                font_size: self.height*0.2
+            
+            Label:
+                text: "Impuesto sobre la Renta:"
+                font_size: self.height*0.2
+            
+            Label:
+                id: impuesto_renta
+                font_size: self.height*0.2
+
+        GridLayout:
+            cols:2
+            padding: root.width*0.15, root.width*0.1, root.width*0.15, root.width*0.1
+            spacing: 20
+            
+            Button:
+                text: "Volver"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                on_release: 
+                    app.root.current = "menuempresa"
+                    root.manager.transition.direction = "right"  
+
+            Button:
+                text: "Calcular"
+                font_size:self.height*0.2
+                pos_hint:{"root.x":0.5, "root.y": 0.5}
+                on_release: 
+                    root.Determine()
+
+
+
+
+

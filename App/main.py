@@ -27,46 +27,46 @@ Window.clearcolor = (52/255.0, 97/255.0, 180/255.0, 1)
 # Clase para la pantalla principal en la cual se elige el tipo de uso que se 
 # desea dar al sistema Personal o Empresa
 class Menu(Screen):
-    
-    texto = ObjectProperty(None)
+    pass
+    # texto = ObjectProperty(None)
     
     def EntraPersona(self):
-        layout = GridLayout(cols = 2, padding = 30, spacing = 25)
-        boton_ok = Button(text='Aceptar', size_hint=(0.25, 0.25),font_size= 20)
-        boton_cancel = Button(text='Cancelar', size_hint=(0.25, 0.25),font_size= 20)
-        layout.add_widget(boton_ok)
-        layout.add_widget(boton_cancel)
-        pop = Popup(title='Ingresar a Persona?',
-                title_size = '20',
-                title_align = 'center',
-                content=layout,
-                auto_dismiss=False,
-                size_hint=(None, None), size=(350, 200))
+    #     layout = GridLayout(cols = 2, padding = 30, spacing = 25)
+    #     boton_ok = Button(text='Aceptar', size_hint=(0.25, 0.25),font_size= 20)
+    #     boton_cancel = Button(text='Cancelar', size_hint=(0.25, 0.25),font_size= 20)
+    #     layout.add_widget(boton_ok)
+    #     layout.add_widget(boton_cancel)
+    #     pop = Popup(title='Ingresar a Persona?',
+    #             title_size = '20',
+    #             title_align = 'center',
+    #             content=layout,
+    #             auto_dismiss=False,
+    #             size_hint=(None, None), size=(350, 200))
 
-        boton_ok.bind(on_press = pop.dismiss)
-        boton_ok.bind(on_press = ir_login_persona)
-        boton_cancel.bind(on_press = pop.dismiss)
-        pop.open()
+    #     boton_ok.bind(on_press = pop.dismiss)
+    #     boton_ok.bind(on_press = ir_login_persona)
+    #     boton_cancel.bind(on_press = pop.dismiss)
+    #     pop.open()
         persona.setupPersona()
 
     def EntraEmpresa(self):
-        layout = GridLayout(cols = 2, padding = 30, spacing = 25)
-        boton_ok = Button(text='Aceptar', size_hint=(0.25, 0.25),font_size= 20)
-        boton_cancel = Button(text='Cancelar', size_hint=(0.25, 0.25),font_size= 20)
-        layout.add_widget(boton_ok)
-        layout.add_widget(boton_cancel)
-        pop = Popup(title='Ingresar a Empresa?',
-                title_size = '20',
-                title_align = 'center',
-                content=layout,
-                auto_dismiss=False,
-                size_hint=(None, None), size=(350, 200))
+    #     layout = GridLayout(cols = 2, padding = 30, spacing = 25)
+    #     boton_ok = Button(text='Aceptar', size_hint=(0.25, 0.25),font_size= 20)
+    #     boton_cancel = Button(text='Cancelar', size_hint=(0.25, 0.25),font_size= 20)
+    #     layout.add_widget(boton_ok)
+    #     layout.add_widget(boton_cancel)
+    #     pop = Popup(title='Ingresar a Empresa?',
+    #             title_size = '20',
+    #             title_align = 'center',
+    #             content=layout,
+    #             auto_dismiss=False,
+    #             size_hint=(None, None), size=(350, 200))
 
-        boton_ok.bind(on_press = pop.dismiss)
-        boton_ok.bind(on_press = ir_login_empresa)
-        boton_cancel.bind(on_press = pop.dismiss)
+    #     boton_ok.bind(on_press = pop.dismiss)
+    #     boton_ok.bind(on_press = ir_login_empresa)
+    #     boton_cancel.bind(on_press = pop.dismiss)
         
-        pop.open()
+    #     pop.open()
 
         empresa.setupEmpresa()
         
@@ -130,12 +130,6 @@ class LoginPersona(Screen):
 class CreateUserPersona(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    # persona.createUser(self.nameAccount.text,self.namePassword.text)
-=======
-=======
->>>>>>> master
     againPassword = ObjectProperty(None)
     
     def createUser(self):
@@ -205,21 +199,11 @@ class CreateUserPersona(Screen):
         self.againPassword.text = ""
         pop.open()
 
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 
 
 #Pagina para crear cuentas:
 class CreateAccountPersona (Screen):
     account = ObjectProperty(None)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    # persona.crearCuenta(self.account.text)
-=======
-=======
->>>>>>> master
     def createAccount(self):
         try:
             persona.crearCuenta(self.account.text)
@@ -241,10 +225,6 @@ class CreateAccountPersona (Screen):
         self.account.text = ""
         pop.open()
         
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 
 # Pagina para registro de Ingresos
 
@@ -272,12 +252,6 @@ class IngresosPersona(Screen):
     nameIngresos = ObjectProperty(None)
     montoIngresos = ObjectProperty(None)
     conceptoIngresos = ObjectProperty(None)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    # persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
-=======
-=======
->>>>>>> master
     def ingresos(self):
         try:
             persona.ingresos(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
@@ -303,40 +277,44 @@ class IngresosPersona(Screen):
         self.conceptoIngresos.text = ""
         pop.open()     
 
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
   
 # Pagina para Ingreso de Gastos
 class GastosPersona(Screen):
     nameGastos = ObjectProperty(None)
     montoGastos = ObjectProperty(None)
     conceptoGastos = ObjectProperty (None)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    # persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
-# Pagina para muestra de Balance
-class BalancePersona(Screen):
-    nameBalance = ObjectProperty(None)
-    # persona.balance(self.nameBalance.text)
-=======
-=======
->>>>>>> master
     def gastos(self):
         persona.gastos(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
         self.nameGastos.text = ""
         self.montoGastos.text = ""
         self.conceptoGastos.text = ""
+
+
+
 # Pagina para muestra de Balance
 class BalancePersona(Screen):
     nameBalance = ObjectProperty(None)
     def balance(self):
-        persona.balance(self.nameBalance.text)
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
+        try:
+            persona.balance(self.nameBalance.text)
+            persona.PlotFigures(self.nameBalance.text)
+            self.nameBalance.text = ""
+        except:
+            self.Datos_invalidos()
+            self.nameBalance.text = ""
+
+    
+    def Datos_invalidos (self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='La cuenta ingresada no es válida',
+            content=content,
+            title_align = 'center',
+            title_size = '20',
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_release=pop.dismiss)
+        pop.open()
 
 ######################### Defino las clases de pantallas para empresas #########################
 
@@ -348,26 +326,12 @@ class LoginEmpresa(Screen):
     
     login = False
     i = 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    def check_userpassword(self):        
-        # self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
-        print(self.nameUser.text, self.namePassword.text)
-        if self.login == False:
-            self.i = self.i+1
-=======
-=======
->>>>>>> master
     def check_userpassword(self):
         # Se verifica si 
         Flag_de_Error = True #Bandera para caso de error 
         try:
             self.login = empresa.loginUser(self.nameUser.text, self.namePassword.text)
         except:
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
             self.Fallo_UC()
             Flag_de_Error = False
 
@@ -407,12 +371,6 @@ class LoginEmpresa(Screen):
 class CreateUserEmpresa(Screen):
     nameAccount = ObjectProperty(None)
     namePassword = ObjectProperty (None)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    # empresa.createUser(self.nameAccount.text,self.namePassword.text)
-=======
-=======
->>>>>>> master
     againPassword = ObjectProperty(None)
     
     def createUser(self):
@@ -480,22 +438,12 @@ class CreateUserEmpresa(Screen):
         self.namePassword.text = ""
         self.againPassword.text = ""
         pop.open()
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 
 
 
 #Pagina para crear cuentas:
 class CreateAccountEmpresa (Screen):
     account = ObjectProperty(None)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    # empresa.crearCuentaEmpresa(self.account.text)
-=======
-=======
->>>>>>> master
     def createAccount(self):
         try:
             empresa.crearCuentaEmpresa(self.account.text)
@@ -539,82 +487,6 @@ class MenuEmpresa (Screen):
         boton2.bind(on_release = pop.dismiss)
         pop.open() 
     
-<<<<<<< HEAD
->>>>>>> master
-
-class IngresosEmpresa(Screen):
-<<<<<<< HEAD
-    nameCuenta = ObjectProperty(None)
-    nameMonto = ObjectProperty(None)
-    nameConcepto = ObjectProperty(None)
-    # empresa.ingresosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
-  
-# Pagina para Ingreso de Gastos
-class GastosEmpresa(Screen):
-    nameCuenta = ObjectProperty(None)
-    nameMonto = ObjectProperty(None)
-    nameConcepto = ObjectProperty(None)
-    # empresa.gastosEmpresa(self.nameCuenta.text,self.nameMonto.text,self.nameConcepto.text)
-# Pagina para muestra de Balance
-class BalanceEmpresa(Screen):
-    nameBalance = ObjectProperty(None)
-    # empresa.balanceEmpresa(self.nameBalance.text)
-
-class ImpuestoEmpresa(Screen):
-    nameEstado = ObjectProperty(None)
-    # empresa.impuestosEmpresa(self.nameEstado.text)
-=======
-    nameIngresos = ObjectProperty(None)
-    montoIngresos = ObjectProperty(None)
-    conceptoIngresos = ObjectProperty(None)
-    def ingresos(self):
-        try:
-            empresa.ingresosEmpresa(self.nameIngresos.text,self.montoIngresos.text,self.conceptoIngresos.text)
-            self.nameIngresos.text = ""
-            self.montoIngresos.text = ""
-            self.conceptoIngresos.text = ""
-        except:
-            self.Datos_invalidos()
-
-
-    def Datos_invalidos (self):
-        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
-        pop = Popup(title='Valores ingresados no son válidos',
-            content=content,
-            title_align = 'center',
-            title_size = '20',
-            auto_dismiss=False,
-            size_hint=(None, None), size=(350, 200))
-
-        content.bind(on_release=pop.dismiss)
-        self.nameIngresos.text = ""
-        self.montoIngresos.text = ""
-        self.conceptoIngresos.text = ""
-        pop.open()     
-
-  
-# Pagina para Ingreso de Gastos
-class GastosEmpresa(Screen):
-    nameGastos = ObjectProperty(None)
-    montoGastos = ObjectProperty(None)
-    conceptoGastos = ObjectProperty (None)
-    def gastos(self):
-        empresa.gastosEmpresa(self.nameGastos.text,self.montoGastos.text,self.conceptoGastos.text)
-        self.nameGastos.text = ""
-        self.montoGastos.text = ""
-        self.conceptoGastos.text = ""
-# Pagina para muestra de Balance
-class BalanceEmpresa(Screen):
-    nameBalance = ObjectProperty(None)
-    def balance(self):
-        empresa.balanceEmpresa(self.nameBalance.text)
-
-class ImpuestoEmpresa(Screen):
-    nameEstado = ObjectProperty(None)
-    def impuestos(self):
-        empresa.taxesEmpresa(self.nameEstado.text)
->>>>>>> master
-=======
 
 class IngresosEmpresa(Screen):
     nameIngresos = ObjectProperty(None)
@@ -660,13 +532,75 @@ class GastosEmpresa(Screen):
 class BalanceEmpresa(Screen):
     nameBalance = ObjectProperty(None)
     def balance(self):
-        empresa.balanceEmpresa(self.nameBalance.text)
+        try:
+            empresa.balanceEmpresa(self.nameBalance.text)
+            empresa.PlotFigures(self.nameBalance.text)
+            self.nameBalance.text = ""
+        except:
+            self.Datos_invalidos()
+            self.nameBalance.text = ""
+    
+    def Datos_invalidos (self):
+        content = Button(text='Aceptar', size_hint=(0.5, 0.5),font_size= 20)
+        pop = Popup(title='La cuenta ingresada no es válida',
+            content=content,
+            title_align = 'center',
+            title_size = '20',
+            auto_dismiss=False,
+            size_hint=(None, None), size=(350, 200))
+
+        content.bind(on_release=pop.dismiss)
+        pop.open()
 
 class ImpuestoEmpresa(Screen):
-    nameEstado = ObjectProperty(None)
-    def impuestos(self):
-        empresa.taxesEmpresa(self.nameEstado.text)
->>>>>>> master
+    impuesto_ent_jur = ObjectProperty(None)
+    impuesto_renta = ObjectProperty(None)
+
+    def Determine(self):
+
+        layout = GridLayout(cols = 2, padding = 30, spacing = 25)
+        boton_ok = Button(text='Si', size_hint=(0.25, 0.25),font_size= 20)
+        boton_cancel = Button(text='No', size_hint=(0.25, 0.25),font_size= 20)
+        layout.add_widget(boton_ok)
+        layout.add_widget(boton_cancel)
+        pop = Popup(title='¿Esta su empresa registrada?',
+                title_size = '20',
+                title_align = 'center',
+                content=layout,
+                auto_dismiss=False,
+                size_hint=(None, None), 
+                size=(350, 200))
+
+        boton_ok.bind(on_release = pop.dismiss)
+        boton_ok.bind(on_press = self.impuestos_si)
+        boton_cancel.bind(on_release = pop.dismiss)
+        boton_cancel.bind(on_press = self.impuestos_no)
+        
+        pop.open()
+
+
+    def impuestos_si(self, *kargs):
+        val1, val2 = empresa.taxesEmpresaSI()
+        if float(val1)<0:
+            val1 = str(0.0)
+        if float(val2)<0:
+            val2 = str(0.0)
+        
+        self.impuesto_ent_jur.text, self.impuesto_renta.text = val1, val2
+
+    
+    def impuestos_no(self, *kargs):
+        val1, val2 = empresa.taxesEmpresaNO()
+        if float(val1)<0:
+            val1 = str(0.0)
+        if float(val2)<0:
+            val2 = str(0.0)
+        
+        self.impuesto_ent_jur.text, self.impuesto_renta.text = val1, val2
+
+
+
+        
 
 
 ############## Declaro manejador de ventanas ##############
@@ -679,10 +613,6 @@ def ir_login_persona(*args):
     sm.current = "loginpersona"
     sm.transition.direction = "left"
     persona.Usuarioactual = ""
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
 def ir_login_empresa(*args):
     sm.current = "loginempresa"
@@ -707,7 +637,7 @@ ventanasPersona = [Menu(name="menu"), LoginPersona(name="loginpersona"), CreateU
                     GastosPersona(name="gastospersona"), BalancePersona(name="balancepersona"), MenuPersona(name="menupersona"), CreateAccountPersona(name="createaccountpersona")]
 
 ventanasEmpresa = [LoginEmpresa(name="loginempresa"), CreateUserEmpresa(name="crearempresa"), IngresosEmpresa(name="ingresosempresa"), GastosEmpresa(name="gastosempresa"), 
-                    BalanceEmpresa(name="balanceempresa"), MenuEmpresa(name = "menuempresa"), CreateAccountEmpresa(name="createaccountempresa")]
+                    BalanceEmpresa(name="balanceempresa"), MenuEmpresa(name = "menuempresa"), CreateAccountEmpresa(name="createaccountempresa"), ImpuestoEmpresa(name="impuestoempresa")]
 
 for ventana in ventanasPersona:     #Ventanas para Persona
     sm.add_widget(ventana)
@@ -716,7 +646,7 @@ for ventana in ventanasEmpresa:     #Ventanas para Empresa
     sm.add_widget(ventana)
 
 # Defino la pantalla inicial
-sm.current = "menu"
+sm.current = "impuestoempresa"
 
 # El incializador o  constructor
 class ControlFinancieroApp(App):
