@@ -3,6 +3,7 @@ import csv
 from datetime import date
 import pandas as pd
 import crypt
+import matplotlib.pyplot as plt
 
 class Empresa:
     
@@ -121,8 +122,61 @@ class Empresa:
             writer = csv.writer(f)
             writer.writerow([total,fecha])
 
-    def taxesEmpresa(self, textEstado):
-        estadoEntidadJuridica = str(textEstado)
+    # def taxesEmpresa(self, textEstado):
+    #     validacion = bool(textEstado)
+    #     valorNeto = 0
+    #     folders = 0
+    #     impuestoSobreEntJur = 0
+    #     impuestoSobreRenta = 0
+
+
+    #     pathLista = self.path + self.Usuarioactual + '/'
+    #     with open(os.path.join(pathLista,'cuentas.csv')) as csvfile:
+    #         folderList = list(csv.reader(csvfile))
+
+    #     for _, dirnames, _ in os.walk(pathLista):
+    #         folders += len(dirnames)
+        
+    #     i=1
+    #     while (i<=folders):
+    #         path = self.path + self.Usuarioactual + '/' + folderList[i][0] +'/'
+    #         with open(os.path.join(path,'balance.csv')) as csvfile:
+    #             num = list(csv.reader(csvfile))
+    #         position = len(num)-1
+    #         valorNeto = valorNeto + float(num[position][0])
+
+    #         i= i + 1
+        
+        
+    #     if (validacion==True):
+    #         impuestoSobreEntJur = valorNeto*0.15
+    #     else:
+    #         impuestoSobreEntJur = valorNeto*0.25
+        
+    #     if (valorNeto<5143000):
+    #         impuestoSobreRenta = valorNeto*0.5
+    #     elif (5143000<=valorNeto<7715000):
+    #         impuestoSobreRenta = valorNeto*0.10
+    #     elif (7715000<=valorNeto,10286000):
+    #         impuestoSobreRenta = valorNeto*0.15
+    #     else:
+    #         impuestoSobreRenta = valorNeto*0.20
+        
+    #     pathAppend = self.path + self.Usuarioactual + '/'
+    #     with open(os.path.join(pathAppend, 'impuesto.csv'), "w") as f:
+    #         writer = csv.writer(f)
+    #         writer.writerow(['Monto','Impuesto'])
+    #         writer.writerow([impuestoSobreEntJur,'Impuesto sobre entidades jurídicas'])
+    #         writer.writerow([impuestoSobreRenta,'Impuesto sobre la renta'])
+
+    #     # # impuestos = pd.read_csv(pathAppend + 'impuesto.csv')
+    #     # # monto = impuestos['Monto']
+        
+    #     # monto = str(impuestoSobreEntJur) + str(impuestoSobreRenta)
+
+    #     return str(impuestoSobreEntJur), str(impuestoSobreRenta)
+
+    def taxesEmpresaNO(self):
         valorNeto = 0
         folders = 0
         impuestoSobreEntJur = 0
@@ -146,11 +200,7 @@ class Empresa:
 
             i= i + 1
         
-        
-        if (estadoEntidadJuridica == 's'):
-            impuestoSobreEntJur = valorNeto*0.15
-        else:
-            impuestoSobreEntJur = valorNeto*0.25
+        impuestoSobreEntJur = valorNeto*0.15
         
         if (valorNeto<5143000):
             impuestoSobreRenta = valorNeto*0.5
@@ -167,6 +217,54 @@ class Empresa:
             writer.writerow(['Monto','Impuesto'])
             writer.writerow([impuestoSobreEntJur,'Impuesto sobre entidades jurídicas'])
             writer.writerow([impuestoSobreRenta,'Impuesto sobre la renta'])
+
+        return str(impuestoSobreEntJur), str(impuestoSobreRenta)
+
+    def taxesEmpresaSI(self):
+        valorNeto = 0
+        folders = 0
+        impuestoSobreEntJur = 0
+        impuestoSobreRenta = 0
+
+        impuestoSobreEntJur = valorNeto*0.15
+
+        pathLista = self.path + self.Usuarioactual + '/'
+        with open(os.path.join(pathLista,'cuentas.csv')) as csvfile:
+            folderList = list(csv.reader(csvfile))
+
+        for _, dirnames, _ in os.walk(pathLista):
+            folders += len(dirnames)
+        
+        i=1
+        while (i<=folders):
+            path = self.path + self.Usuarioactual + '/' + folderList[i][0] +'/'
+            with open(os.path.join(path,'balance.csv')) as csvfile:
+                num = list(csv.reader(csvfile))
+                position = len(num)-1
+                valorNeto = valorNeto + float(num[position][0])
+
+            i= i + 1
+        
+        impuestoSobreEntJur = valorNeto*0.25
+        
+        if (valorNeto<5143000):
+            impuestoSobreRenta = valorNeto*0.5
+        elif (5143000<=valorNeto<7715000):
+            impuestoSobreRenta = valorNeto*0.10
+        elif (7715000<=valorNeto,10286000):
+            impuestoSobreRenta = valorNeto*0.15
+        else:
+            impuestoSobreRenta = valorNeto*0.20
+        
+        pathAppend = self.path + self.Usuarioactual + '/'
+        with open(os.path.join(pathAppend, 'impuesto.csv'), "w") as f:
+            writer = csv.writer(f)
+            writer.writerow(['Monto','Impuesto'])
+            writer.writerow([impuestoSobreEntJur,'Impuesto sobre entidades jurídicas'])
+            writer.writerow([impuestoSobreRenta,'Impuesto sobre la renta'])
+
+        return str(impuestoSobreEntJur), str(impuestoSobreRenta)
+
 
     def PlotFigures (self,cuentaPlot):
         cuenta = str(cuentaPlot) + '/'
