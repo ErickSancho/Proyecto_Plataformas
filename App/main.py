@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 #coding = utf-8
 
 # Librerias de la interrfaz grafica
